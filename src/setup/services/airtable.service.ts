@@ -19,11 +19,6 @@ const findAllAnswer = async () => {
   return base("Answer").select().all();
 };
 
-const findAllQuestions = async () => {
-  const base = dbConnection();
-  return base("Question").select().all();
-};
-
 const findAllUsers = async () => {
   const base = dbConnection();
   return base("User").select().all();
@@ -34,10 +29,6 @@ const findOneAnswer = async (id: string) => {
   return base("Answer").find(id);
 };
 
-const findOneQuestion = async (id: string) => {
-  const base = dbConnection();
-  return base("Question").find(id);
-};
 
 const findOneUser = async (id: string) => {
   const base = dbConnection();
@@ -47,21 +38,12 @@ const findOneUser = async (id: string) => {
 const createAnswer = async (data: Partial<Answer>, user, questionId: string) => {
   const base = dbConnection();
   const answer = await base("Answer").create(data);
-  const question = await base("Question").find(questionId);
   await base("Answer").update(answer.id, {
     User: [user.id],
-  });
-  await base("Question").update(question.id, {
-    Answer: [answer.id],
   });
   await base("User").update(user.id, {
     Answer: [answer.id],
   })
-};
-
-const createQuestion = async (data) => {
-  const base = dbConnection();
-  return base("Answer").create(data);
 };
 
 const createUser = async (data) => {
@@ -74,10 +56,6 @@ const updateAnswer = async (id: string, data: Partial<Answer>) => {
   return base("Answer").update(id, data);
 };
 
-const updateQuestion = async (id: string, data) => {
-  const base = dbConnection();
-  return base("Question").update(id, data);
-};
 
 const updateUser = async (id: string, data) => {
   const base = dbConnection();
@@ -89,10 +67,6 @@ const removeAnswer = async (id: string) => {
   return base("Answer").destroy(id);
 };
 
-const removeQuestion = async (id: string) => {
-  const base = dbConnection();
-  return base("Question").destroy(id);
-};
 
 const removeUser = async (id: string) => {
   const base = dbConnection();
@@ -102,18 +76,13 @@ const removeUser = async (id: string) => {
 export const AirtableService = {
   dbConnection,
   findAllAnswer,
-  findAllQuestions,
   findAllUsers,
   findOneAnswer,
-  findOneQuestion,
   findOneUser,
   createAnswer,
-  createQuestion,
   createUser,
   updateAnswer,
-  updateQuestion,
   updateUser,
   removeAnswer,
-  removeQuestion,
   removeUser,
 };
