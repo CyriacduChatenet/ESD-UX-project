@@ -31,13 +31,17 @@ const findOneQuestion = async (id: string) => {
     const base = dbConnection();
     return base('Question').find(id)
 };
-
-const createAnswer = async (data: Answer) => {
+  
+const createAnswer = async (data: Partial<Answer>, questionId: string) => {
     const base = dbConnection();
-    return base('Answer').create(data)
-};
+    const answer = await base("Answer").create(data);
+    const question = await base("Question").find(questionId);
+    return await base("Question").update(question.id, {
+        'Answer': [answer.id],
+    });
+  };
 
-const createQuestion = async (data: Question) => {
+const createQuestion = async (data) => {
     const base = dbConnection();
     return base('Answer').create(data)
 };
@@ -47,7 +51,7 @@ const updateAnswer = async (id: string, data: Partial<Answer>) => {
     return base('Answer').update(id, data);
 };
 
-const updateQuestion = async (id: string, data: Partial<Question>) => {
+const updateQuestion = async (id: string, data) => {
     const base = dbConnection();
     return base('Question').update(id, data);
 };
