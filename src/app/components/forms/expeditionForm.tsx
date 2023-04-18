@@ -8,8 +8,13 @@ export const ExpeditionForm: FC = () => {
     const useStep = new useStepHook();
   return (
     <div>
-      <p>Par quel moyen(s) expédiez-vous vos marchandises ?</p>
-      <form action="">
+      <p className="text-center">Par quel moyen(s) expédiez-vous vos marchandises ?</p>
+      <form className="flex justify-between flex-wrap" action="">
+        <button>Coursier</button>
+        <button>Messagerie</button>
+        <button>Express</button>
+        <button>Maritime</button>
+        <button>Affraitement</button>
       </form>
       <br />
       <button onClick={(e) => useStep.handleStepDecrement(e, step, setStep, progressBar, setProgressBar)}>previous step</button>

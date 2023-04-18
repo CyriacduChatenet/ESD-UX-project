@@ -8,13 +8,13 @@ export const MultiColisForm: FC = () => {
 
     return (
         <div>
-            <p>Expédiez vous vos colis à l’international ?</p>
+            <p className="text-center">Expédiez vous vos colis à l’international ?</p>
         <form action="">
             <button>oui</button>
             <button>non</button>
         </form>
         <br />
-        <p>Faites vous de l’expédition multi-colis ?</p>
+        <p className="text-center">Faites vous de l’expédition multi-colis ?</p>
         <form action="">
             <button>oui</button>
             <button>non</button>

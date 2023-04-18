@@ -7,7 +7,7 @@ export const SpendForm: FC = () => {
     const useStep = new useStepHook();
     return (
         <div>
-            <p>Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
+            <p className="text-center">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
             <p>(Annuel, en €)</p>
             <form action="">
             <button>-100k</button>
