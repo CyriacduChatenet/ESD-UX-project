@@ -7,7 +7,7 @@ export const TransporterForm: FC = () => {
     const useStep = new useStepHook();
     return (
     <div>
-            <p>Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
+            <p className="text-[#022AB1] text-center font-medium text-xl">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
         <form action="">
             <button>1 et 5</button>
             <button>5 et 10</button>

@@ -15,7 +15,7 @@ export const BillForm: FC = () => {
     const useStep = new useStepHook();
     return (
         <div>
-            <p className="text-center">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
+            <p className="text-center text-[#022AB1] font-medium text-xl">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
         <form action="">
             <button onClick={handleClick}>Logiciel</button>
             <button onClick={handleClick}>Excel</button>
