@@ -3,70 +3,67 @@ import { useUser } from "../../../setup/context/user.context";
 import { useStepHook } from "../../../setup/hooks/useStepIncrement.hook";
 import { ResponseCard } from "../responseCard";
 
+import expe1 from "../../assets/images/expe1.png";
+import expe2 from "../../assets/images/expe2.png";
+import expe3 from "../../assets/images/expe3.png";
+import expe4 from "../../assets/images/expe4.png";
+import expe5 from "../../assets/images/expe5.png";
+import { Button } from "../button";
+
 export const ExpeditionForm: FC = () => {
   const { setStep, step, progressBar, setProgressBar } = useUser();
   const [response, setResponse] = useState([
     {
       label: "Coursier",
-      logo: "",
+      logo: expe1,
     },
     {
       label: "Messagerie",
-      logo: "",
+      logo: expe2,
     },
     {
       label: "Express",
-      logo: "",
+      logo: expe3,
     },
     {
       label: "Maritime",
-      logo: "",
+      logo: expe4,
     },
     {
       label: "Affraitement",
-      logo: "",
+      logo: expe5,
     },
   ]);
 
   const useStep = new useStepHook();
+
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
+
   return (
-    <div>
+    <div className="grid-cols-4">
       <p className="text-center text-[#022AB1] text-xl font-medium">
         Par quel moyen(s) expédiez-vous vos marchandises ?
       </p>
-      <form className="flex justify-between flex-wrap" action="">
+      <form
+        className="flex justify-between flex-wrap items-center mt-8"
+        action=""
+      >
         {response.map((item, index) => (
-          <ResponseCard label={item.label} logo={item.logo} handleClick={() => {}} />
+          <ResponseCard
+            label={item.label}
+            logo={item.logo}
+            handleClick={handleClick}
+            index={index}
+          />
         ))}
       </form>
       <br />
-      <button
-        onClick={(e) =>
-          useStep.handleStepDecrement(
-            e,
-            step,
-            setStep,
-            progressBar,
-            setProgressBar
-          )
-        }
-      >
-        previous step
-      </button>
-      <br />
-      <button
-        onClick={(e) =>
-          useStep.handleStepIncrement(
-            e,
-            step,
-            setStep,
-            progressBar,
-            setProgressBar
-          )
-        }
-      >
-        next step
-      </button>
+      <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center">
+        <Button type={"Previous"} />
+        <Button type={"Next"} />
+      </div>
     </div>
   );
 };
