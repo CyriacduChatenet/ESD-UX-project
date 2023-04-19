@@ -11,14 +11,14 @@ import { useUser } from "../../setup/context/user.context";
 export const Navbar: FC = () => {
     const { step } = useUser();
     return (
-        <nav className="col-span-4 h-36 flex items-center xl:col-span-12 xl:border-gray-800 xl:border-solid xl:border-b-2 xl:border-opacity-10">
-            <img src={logo} alt="logo" className="col-span-2 xl:w-48" />
+        <nav className="mx-2 col-span-4 row-span-1 h-full flex justify-around lg:justify-start items-center lg:border-gray-800 lg:border-solid lg:border-b-2 lg:border-opacity-10">
+            <img src={logo} alt="logo" className="col-span-2 lg:w-1/6" />
             {
-            window.innerWidth < 1024 && step === 1 ? <img src={imgPerso1} alt="illustration" className="col-span-2" /> :
-            window.innerWidth < 1024 && step === 2 ? <img src={imgPerso2} alt="illustration" className="col-span-2" /> :
-            window.innerWidth < 1024 && step === 3 ? <img src={imgPerso3} alt="illustration" className="col-span-2 w-28" /> :
-            window.innerWidth < 1024 && step === 4 ? <img src={imgPerso4} alt="illustration" className="col-span-2 w-48" /> :
-            window.innerWidth < 1024 && step === 5 ? <img src={imgPerso5} alt="illustration" className="col-span-2 w-48" /> :
+            window.innerWidth < 1024 && step === 1 ? <img src={imgPerso1} alt="illustration" className="" /> :
+            window.innerWidth < 1024 && step === 2 ? <img src={imgPerso2} alt="illustration" className="" /> :
+            window.innerWidth < 1024 && step === 3 ? <img src={imgPerso3} alt="illustration" className="" /> :
+            window.innerWidth < 1024 && step === 4 ? <img src={imgPerso4} alt="illustration" className="" /> :
+            window.innerWidth < 1024 && step === 5 ? <img src={imgPerso5} alt="illustration" className="" /> :
              null}
         </nav>
     );

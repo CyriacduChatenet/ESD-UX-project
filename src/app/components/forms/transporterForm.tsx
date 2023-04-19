@@ -28,9 +28,9 @@ export const TransporterForm: FC = () => {
       };
 
     return (
-    <div>
-        <p className="text-[#022AB1] text-center font-medium text-xl">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
-        <form action="" className="flex justify-between flex-wrap items-center mt-8">
+    <div className="lg:col-span-9 lg:ml-20 lg:mt-10">
+        <p className="col-span-4 lg:grid-col-span-9 row-span-1 text-[#022AB1] font-medium text-xl">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
+        <form action="" className="col-span-4 row-span-1 flex flex-wrap">
         {response.map((item, index) => (
           <ResponseCard
             label={item.label}
@@ -40,7 +40,7 @@ export const TransporterForm: FC = () => {
         ))}
       </form>
         <br />
-        <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center">
+        <div className="col-span-4 lg:grid-col-span-9 row-span-1 fixed left-0 right-0 bottom-20 flex justify-around items-center">
         <Button type={"Previous"} />
         <Button type={"Next"} />
       </div>

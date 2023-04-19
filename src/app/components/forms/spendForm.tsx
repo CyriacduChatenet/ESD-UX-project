@@ -28,12 +28,12 @@ export const SpendForm: FC = () => {
   };
 
   return (
-    <div>
-      <p className="text-center text-[#022AB1] font-medium text-xl">
+    <div className="lg:col-span-9 lg:ml-20 lg:mt-10">
+      <p className="text-[#022AB1] font-medium text-xl">
         Combien votre entreprise dépense-t-elle en prestation de transport ?
       </p>
       <p className="text-center italic">(Annuel, en €)</p>
-      <form action="" className="flex justify-between flex-wrap items-center mt-8">
+      <form action="" className="col-span-4 lg:grid-col-span-9 row-span-1 flex flex-wrap">
         {response.map((item, index) => (
           <ResponseCard
             label={item.label}
@@ -43,7 +43,7 @@ export const SpendForm: FC = () => {
         ))}
       </form>
       <br />
-      <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center">
+      <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center lg:grid-col-span-9">
         <Button type={"Previous"} />
         <Button type={"Next"} />
       </div>

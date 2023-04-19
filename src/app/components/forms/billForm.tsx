@@ -35,15 +35,15 @@ export const BillForm: FC = () => {
         setCredentials({[value]: value.toLowerCase() });
     };
     return (
-        <div className="grid-cols-4">
-            <p className="text-center text-[#022AB1] font-medium text-xl">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
-            <form className="flex flex-col justify-between items-center mt-8" action="">
+        <div className="lg:col-span-9 lg:ml-20 lg:mt-10">
+            <p className="col-span-4 row-span-1 text-[#022AB1] font-medium text-xl">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
+            <form className="col-span-4 row-span-1 flex flex-col items-center justify-around" action="">
         {response.map((item, index) => (
           <ResponseCard label={item.label} logo={item.logo} handleClick={handleClick} index={index} style={'lg'} />
         ))}
       </form>
         <br />
-        <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center">
+        <div className="col-span-4 row-span-1">
         <Button type={"Previous"} />
         <Button type={"Next"} />
       </div>

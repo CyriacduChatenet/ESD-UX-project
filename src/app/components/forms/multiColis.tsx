@@ -41,12 +41,12 @@ export const MultiColisForm: FC = () => {
 
 
   return (
-    <div>
-      <p className="text-center text-[#022AB1] font-medium text-xl">
+    <div className="lg:col-span-9 lg:ml-20 lg:mt-10">
+      <p className=" text-[#022AB1] font-medium text-xl">
         Expédiez vous vos colis à l’international ?
       </p>
       <form
-        className="flex justify-between flex-wrap items-center mt-8"
+        className="col-span-4 row-span-1 flex flex-wrap"
         action=""
       >
         {firstResponse.map((item, index) => (
@@ -59,11 +59,11 @@ export const MultiColisForm: FC = () => {
         ))}
       </form>
       <br />
-      <p className="text-center text-[#022AB1] font-medium text-xl">
+      <p className=" text-[#022AB1] font-medium text-xl">
         Faites vous de l’expédition multi-colis ?
       </p>
       <form
-        className="flex justify-between flex-wrap items-center mt-8"
+        className="col-span-4 row-span-1 flex flex-wrap"
         action=""
       >
         {secondResponse.map((item, index) => (
@@ -76,7 +76,7 @@ export const MultiColisForm: FC = () => {
         ))}
       </form>
       <br />
-      <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center">
+      <div className="col-span-4 lg:col-span-9 row-span-1 fixed left-0 right-0 bottom-20 flex justify-around items-center">
         <Button type={"Previous"} />
         <Button type={"Next"} />
       </div>

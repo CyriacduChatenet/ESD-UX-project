@@ -42,12 +42,12 @@ export const ExpeditionForm: FC = () => {
   };
 
   return (
-    <div className="grid-cols-4">
-      <p className="text-center text-[#022AB1] text-xl font-medium">
+    <div className="lg:col-span-9 lg:ml-20 lg:mt-10">
+      <p className="col-span-4 row-span-1 text-[#022AB1] text-xl font-medium lg:mb-8">
         Par quel moyen(s) expédiez-vous vos marchandises ?
       </p>
       <form
-        className="flex justify-between flex-wrap items-center mt-8"
+        className="col-span-4 lg:col-span-9 row-span-1 flex flex-wrap justify-between lg:h-full"
         action=""
       >
         {response.map((item, index) => (
@@ -60,7 +60,7 @@ export const ExpeditionForm: FC = () => {
         ))}
       </form>
       <br />
-      <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center">
+      <div className="col-span-4 lg:grid-col-span-9 row-span-1 fixed left-0 right-0 bottom-20 flex justify-around items-center">
         <Button type={"Previous"} />
         <Button type={"Next"} />
       </div>

@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent } from "react";
+import React, { FC } from "react";
 
 import { Layout } from "./components/Layout";
 import { useUser } from "../setup/context/user.context";
@@ -7,20 +7,24 @@ import { SpendForm } from "./components/forms/spendForm";
 import { TransporterForm } from "./components/forms/transporterForm";
 import { MultiColisForm } from "./components/forms/multiColis";
 import { BillForm } from "./components/forms/billForm";
+import { SideBar } from "./components/sideBar";
 
 export const App: FC = () => {
   const { step } = useUser();
   return (
     <Layout>
-      <div className="col-span-4">
-        <p className="cols-span-4 text-black text-opacity-50">Etape {step}/5</p>
+      <>
+        <p className="text-black text-opacity-50 lg:hidden">Etape {step}/5</p>
         <br />
-        {step === 1 && <ExpeditionForm/>}
-        {step === 2 && <SpendForm/>}
-        {step === 3 && <TransporterForm/>}
-        {step === 4 && <MultiColisForm/>}
-        {step === 5 && <BillForm/>}
-      </div>
+        <div className="lg:grid lg:grid-cols-12 lg:grid-rows-2">
+          {window.innerWidth > 1024 && <SideBar />}
+          {step === 1 && <ExpeditionForm />}
+          {step === 2 && <SpendForm />}
+          {step === 3 && <TransporterForm />}
+          {step === 4 && <MultiColisForm />}
+          {step === 5 && <BillForm />}
+        </div>
+      </>
     </Layout>
   );
 };

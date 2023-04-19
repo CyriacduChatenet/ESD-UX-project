@@ -31,8 +31,11 @@ export const Button: FC<IProps> = ({ type }) => {
           );
         }
       }}
-
-      className={`${type === 'Next' ? 'bg-[#3D83F8] text-white rounded-full px-10 py-4' : 'bg-white text-[#3D83F8] border rounded-full px-10 py-4 border-white'}`}
+      className={`${
+        type === "Next"
+          ? "bg-[#3D83F8] text-white rounded-full px-10 py-4"
+          : "bg-white text-[#3D83F8] border rounded-full px-10 py-4 border-white"
+      }`}
     >
       {type == "Next" ? "Suivant" : "Retour"}
     </button>
