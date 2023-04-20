@@ -53,13 +53,13 @@ const EmailForm = () => {
       <p className="text-[#022AB1] font-medium text-xl text-center">
         Félicitations ! Vous pouvez faire des économies grâce à DataFret !
       </p>
-      <p className="italic">Recevez notre rapport complet par mail</p>
+      <p className="italic lg:text-center">Recevez notre rapport complet par mail</p>
       <form
         action=""
         className="col-span-4 lg:grid-col-span-9 row-span-1 flex flex-wrap"
       >
         <div className="bg-transparent row-span-1 flex flex-col justify-around items-center">
-        <label className="text-[#022AB1] font-bold my-2">
+        <label className="text-[#022AB1] font-bold my-2 w-full">
             Nom de l'entreprise
             <input
               type="text"
@@ -69,7 +69,7 @@ const EmailForm = () => {
               onChange={handleChange}
             />
           </label>
-        <label className="text-[#022AB1] font-bold my-2">
+        <label className="text-[#022AB1] font-bold my-2  w-full">
             Poste occupé
             <input
               type="text"
@@ -79,7 +79,7 @@ const EmailForm = () => {
               onChange={handleChange}
             />
           </label>
-          <label className="text-[#022AB1] font-bold my-2">
+          <label className="text-[#022AB1] font-bold my-2  w-full">
             Recevez notre rapport complet par mail
             <input
               type="email"

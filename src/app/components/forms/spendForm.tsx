@@ -43,7 +43,7 @@ export const SpendForm: FC = () => {
         Combien votre entreprise dépense-t-elle en prestation de transport ?
       </p>
       <p className="text-center italic">(Annuel, en €)</p>
-      <form action="" className="col-span-4 lg:grid-col-span-9 row-span-1 flex flex-wrap justify-between mt-8">
+      <form action="" className="col-span-4 row-span-1 flex flex-wrap justify-between mt-8">
       {response.map((option) => (
         <label key={option.value} className={`py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
           <input
