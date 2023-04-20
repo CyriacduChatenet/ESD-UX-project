@@ -14,35 +14,56 @@ import { Score } from "../../../setup/enum/score.enum";
 
 export const ExpeditionForm: FC = () => {
   const { setStep, step, progressBar, setProgressBar } = useUser();
-  const { maritime, setMaritime, setExpress, setDelivery, setMessaging, setCourier } = useScore();
+  const {
+    maritime,
+    setMaritime,
+    setExpress,
+    setDelivery,
+    setMessaging,
+    setCourier,
+  } = useScore();
+
   const [response, setResponse] = useState([
     {
       label: "Coursier",
+      value: 'coursier',
       logo: expe1,
     },
     {
       label: "Messagerie",
+      value: "messagerie",
       logo: expe2,
     },
     {
       label: "Express",
+      value: "express",
       logo: expe3,
     },
     {
       label: "Maritime",
+      value: "maritime",
       logo: expe4,
     },
     {
       label: "Affraitement",
+      value: "affraitement",
       logo: expe5,
     },
   ]);
 
   const useStep = new useStepHook();
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const [selected, setSelected] = useState<any[]>([]);
+
+  const handleSelect = (value) => {
+    if (selected.includes(value)) {
+      setSelected(selected.filter((val) => val !== value));
+    } else {
+      setSelected([...selected, value]);
+    }
   };
+
+
 
   return (
     <div className="lg:col-span-9 lg:ml-20 lg:mt-10">
@@ -50,10 +71,30 @@ export const ExpeditionForm: FC = () => {
         Par quel moyen(s) expédiez-vous vos marchandises ?
       </p>
       <form
-        className="col-span-4 lg:col-span-9 row-span-1 flex flex-wrap justify-between lg:h-full"
+        className="col-span-4 lg:col-span-9 row-span-1 lg:h-full flex flex-wrap justify-between mt-12"
         action=""
       >
-        {response.map((item, index) => (
+         {response.map((option) => (
+        <label key={option.value} className={`py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
+          <input
+            type="checkbox"
+            value={option.value}
+            checked={selected.includes(option.value)}
+            onChange={() => {
+              handleSelect(option.value)
+              option.label === "Coursier" && maritime === 0 ? setCourier(Score.COURIER): null;
+              option.label === "Messagerie" && maritime === 0 ? setMessaging(Score.MESSAGING): null;
+              option.label === "Express" && maritime === 0 ? setExpress(Score.EXPRESS): null;
+              option.label === "Maritime" ? setMaritime(Score.MARITIME): null;
+              option.label === "Affraitement" && maritime === 0 ? setDelivery(Score.AFFRER): null;
+            }}
+            className="hidden"
+          />
+          {option.logo && <img src={option.logo} alt={option.label} className="w-8 h-8 mx-2" />}
+          <span className="mx-2">{option.label}</span>
+        </label>
+      ))}
+        {/* {response.map((item, index) => (
           <ResponseCard
             label={item.label}
             logo={item.logo}
@@ -66,7 +107,7 @@ export const ExpeditionForm: FC = () => {
             }}
             index={index}
           />
-        ))}
+        ))} */}
       </form>
       <br />
       <div className="col-span-4 lg:grid-col-span-9 row-span-1 fixed left-0 right-0 bottom-20 flex justify-around items-center">
