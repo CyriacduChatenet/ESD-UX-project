@@ -5,7 +5,7 @@ export const ProgressBar: FC = () => {
   const { step, progressBar } = useUser();
 
   return (
-    <div className="col-span-4 w-full bg-[#E2ECFE] h-1 rounded-xl">
+    <div className={`col-span-4 w-full bg-[#E2ECFE] h-1 rounded-xl ${step > 5 ? "bg-transparent" : null}`}>
       <div
         className={`bg-gradient-to-r ${
           progressBar == 20
@@ -19,7 +19,7 @@ export const ProgressBar: FC = () => {
             : progressBar == 100
             ? "from-[#02016F] to-[#61CE70]"
             : "bg-white"
-        } h-1 rounded-xl ${progressBar == 20 ? 'w-2/12': progressBar == 40 ? 'w-5/12': progressBar == 60 ? 'w-7/12': progressBar == 80 ? 'w-10/12': progressBar == 100 ? 'w-12/12': 'w-0' }`}
+        } h-1 rounded-xl ${progressBar == 20 ? 'w-2/12': progressBar == 40 ? 'w-5/12': progressBar == 60 ? 'w-7/12': progressBar == 80 ? 'w-10/12': progressBar == 100 ? 'w-12/12': 'w-0' } ${step > 5 ? "bg-white" : null}`}
       ></div>
     </div>
   );

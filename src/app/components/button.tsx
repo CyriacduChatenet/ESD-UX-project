@@ -13,7 +13,7 @@ export const Button: FC<IProps> = ({ type }) => {
   return (
     <button
       onClick={(e) => {
-        if (type === "Next") {
+        if (type === "Next" || type === "Envoyer") {
           useStep.handleStepIncrement(
             e,
             step,
@@ -32,12 +32,12 @@ export const Button: FC<IProps> = ({ type }) => {
         }
       }}
       className={`${
-        type === "Next"
+        type === "Next" || type === "Envoyer"
           ? "bg-[#3D83F8] text-white rounded-full px-10 py-4"
           : "bg-white text-[#3D83F8] border rounded-full px-10 py-4 border-white"
       }`}
     >
-      {type == "Next" ? "Suivant" : "Retour"}
+      {type == "Next" ? "Suivant" : "Previous" ? "Retour" : "Envoyer" ? "Envoyer" : null}
     </button>
   );
 };
