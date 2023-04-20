@@ -6,6 +6,7 @@ import imgPerso2 from '../assets/images/datafret-perso-2.png';
 import imgPerso3 from '../assets/images/datafret-perso-3.png';
 import imgPerso4 from '../assets/images/datafret-perso-4.png';
 import imgPerso5 from '../assets/images/datafret-perso-5.png';
+import imgPerso6 from '../assets/images/datafret-perso-6.png';
 import { useUser } from "../../setup/context/user.context";
 
 export const Navbar: FC = () => {
@@ -19,6 +20,7 @@ export const Navbar: FC = () => {
             window.innerWidth < 1024 && step === 3 ? <img src={imgPerso3} alt="illustration" className="" /> :
             window.innerWidth < 1024 && step === 4 ? <img src={imgPerso4} alt="illustration" className="" /> :
             window.innerWidth < 1024 && step === 5 ? <img src={imgPerso5} alt="illustration" className="" /> :
+            window.innerWidth < 1024 && step === 6 ? <img src={imgPerso6} alt="illustration" className="" /> :
              null}
         </nav>
     );

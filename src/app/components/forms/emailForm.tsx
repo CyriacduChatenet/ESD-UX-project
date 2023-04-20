@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { SendinBlueService } from "../../../setup/services/sendinblue.service";
 import { Button } from "../button";
 import { useScore } from "../../../setup/context/score.context";
 
+import check from "../../assets/images/check.png";
 
 const EmailForm = () => {
   const [to, setTo] = useState("");
@@ -19,8 +20,14 @@ const EmailForm = () => {
     finalScore,
   } = useScore();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const [credentials, setCredentials] = useState([]);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setCredentials({ ...credentials, [name]: value });
+  }
+
+  const handleSubmit = async () => {
     try {
       const response = await SendinBlueService.sendEmail(
         to,
@@ -40,30 +47,54 @@ const EmailForm = () => {
 
   return (
     <div className="lg:col-span-9 lg:ml-20 lg:mt-10 h-[60vh]">
+      <div className="w-full mb-8 flex justify-center items-center">
+        <img src={check} alt="" />
+      </div>
       <p className="text-[#022AB1] font-medium text-xl text-center">
-      Félicitations ! Vous pouvez faire des économies grâce à DataFret !
+        Félicitations ! Vous pouvez faire des économies grâce à DataFret !
       </p>
       <p className="italic">Recevez notre rapport complet par mail</p>
       <form
         action=""
         className="col-span-4 lg:grid-col-span-9 row-span-1 flex flex-wrap"
       >
-        <div className="bg-transparent row-span-1">
-        <label>
-          To:
-          <input
-            type="email"
-            value={to}
-            onChange={(event) => setTo(event.target.value)}
-          />
-        </label>
-        <button type="submit">Send</button>
+        <div className="bg-transparent row-span-1 flex flex-col justify-around items-center">
+        <label className="text-[#022AB1] font-bold my-2">
+            Nom de l'entreprise
+            <input
+              type="text"
+              name="company"
+              className="border-2 border-solid border-[#020B28] text-[#020B28] font-normal py-2 px-4 w-full"
+              placeholder="Entreprise"
+              onChange={handleChange}
+            />
+          </label>
+        <label className="text-[#022AB1] font-bold my-2">
+            Poste occupé
+            <input
+              type="text"
+              name="company"
+              className="border-2 border-solid border-[#020B28] text-[#020B28] font-normal py-2 px-4 w-full"
+              placeholder="Directeur Logistique"
+              onChange={handleChange}
+            />
+          </label>
+          <label className="text-[#022AB1] font-bold my-2">
+            Recevez notre rapport complet par mail
+            <input
+              type="email"
+              value={to}
+              className="border-2 border-solid border-[#020B28] text-[#020B28] font-normal py-2 px-4 w-full"
+              placeholder="john.doe@gmail.com"
+              onChange={(event) => setTo(event.target.value)}
+            />
+          </label>
         </div>
       </form>
       <br />
       <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center lg:grid-col-span-9">
         <Button type={"Previous"} />
-        <Button type={"Envoyer"} />
+          <Button type={"Envoyer"} handleClick={handleSubmit} />
       </div>
     </div>
   );
