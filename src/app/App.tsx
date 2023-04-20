@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, MouseEvent } from "react";
 
 import { Layout } from "./components/Layout";
 import { useUser } from "../setup/context/user.context";
@@ -8,6 +8,7 @@ import { TransporterForm } from "./components/forms/transporterForm";
 import { MultiColisForm } from "./components/forms/multiColis";
 import { BillForm } from "./components/forms/billForm";
 import { SideBar } from "./components/sideBar";
+import EmailForm from "./components/forms/emailForm";
 
 export const App: FC = () => {
   const { step } = useUser();
@@ -24,6 +25,7 @@ export const App: FC = () => {
           {step === 4 && <MultiColisForm />}
           {step === 5 && <BillForm />}
         </div>
+        <EmailForm/>
       </>
     </Layout>
   );
