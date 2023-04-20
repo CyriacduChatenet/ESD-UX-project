@@ -64,7 +64,7 @@ export const MultiColisForm: FC = () => {
         Expédiez vous vos colis à l’international ?
       </p>
       <form
-        className="col-span-4 row-span-1 flex flex-wrap"
+        className="col-span-4 row-span-1 flex flex-wrap justify-between items-center mt-4"
         action=""
       >
          {firstResponse.map((option) => (
@@ -83,21 +83,14 @@ export const MultiColisForm: FC = () => {
           <span className="mx-2">{option.label}</span>
         </label>
       ))}
-        {/* {firstResponse.map((item, index) => (
-          <ResponseCard
-            label={item.label}
-            logo={item.logo}
-            handleChange={() => { item.label === "oui" && maritime === 0 ? setRegion(Score.INTERNATIONAL_ONLY) : null }}
-            index={index}
-          />
-        ))} */}
       </form>
       <br />
       <p className=" text-[#022AB1] font-medium text-xl">
         Faites vous de l’expédition multi-colis ?
       </p>
+      <p className="italic mb-2"><span className="underline font-bold">Multi-colis</span> : Le transporteur accepte plusieurs colis, dit aussi envoi ou lot, soit un ensemble de colis remis en même temps et devant arriver ensemble chez le même destinataire.</p>
       <form
-        className="col-span-4 row-span-1 flex flex-wrap"
+        className="col-span-4 row-span-1 flex flex-wrap justify-between items-center"
         action=""
       >
         {secondResponse.map((option) => (
@@ -115,14 +108,6 @@ export const MultiColisForm: FC = () => {
           <span className="mx-2">{option.label}</span>
         </label>
       ))}
-        {/* {secondResponse.map((item, index) => (
-          <ResponseCard
-            label={item.label}
-            logo={item.logo}
-            handleChange={() => { item.label === "oui" && maritime === 0 ? setMulticolis(Score.MULTI_PACKAGE) : null }}
-            index={index}
-          />
-        ))} */}
       </form>
       <br />
       <div className="col-span-4 lg:col-span-9 row-span-1 fixed left-0 right-0 bottom-20 flex justify-around items-center">

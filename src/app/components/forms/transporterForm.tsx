@@ -40,7 +40,7 @@ export const TransporterForm: FC = () => {
     return (
     <div className="lg:col-span-9 lg:ml-20 lg:mt-10">
         <p className="col-span-4 lg:grid-col-span-9 row-span-1 text-[#022AB1] font-medium text-xl">Avec combien de transporteurs travaillez vous ?</p>
-        <form action="" className="col-span-4 row-span-1 flex flex-wrap">
+        <form action="" className="col-span-4 row-span-1 flex flex-wrap justify-between mt-20">
         {response.map((option) => (
         <label key={option.value} className={`py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
           <input
