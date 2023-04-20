@@ -1,8 +1,10 @@
 import React, { FC, MouseEvent, useState } from "react";
 import { useStepHook } from "../../../setup/hooks/useStepIncrement.hook";
 import { useUser } from "../../../setup/context/user.context";
+import { useScore } from "../../../setup/context/score.context";
 import { ResponseCard } from "../responseCard";
 import { Button } from "../button";
+import { Score } from "../../../setup/enum/score.enum";
 
 import colis1 from '../../assets/images/colis1.png'
 import colis2 from '../../assets/images/colis2.png'
@@ -11,6 +13,7 @@ import colis4 from '../../assets/images/colis4.png'
 
 export const MultiColisForm: FC = () => {
   const { setStep, step, progressBar, setProgressBar } = useUser();
+  const { setRegion, setMulticolis, maritime } = useScore();
   const useStep = new useStepHook();
 
   const [firstResponse, setFirstResponse] = useState([
@@ -35,10 +38,6 @@ export const MultiColisForm: FC = () => {
     }
   ]);
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-  };
-
 
   return (
     <div className="lg:col-span-9 lg:ml-20 lg:mt-10">
@@ -53,7 +52,7 @@ export const MultiColisForm: FC = () => {
           <ResponseCard
             label={item.label}
             logo={item.logo}
-            handleClick={handleClick}
+            handleClick={() => { item.label === "oui" && maritime === 0 ? setRegion(Score.INTERNATIONAL_ONLY) : null }}
             index={index}
           />
         ))}
@@ -70,7 +69,7 @@ export const MultiColisForm: FC = () => {
           <ResponseCard
             label={item.label}
             logo={item.logo}
-            handleClick={handleClick}
+            handleClick={() => { item.label === "oui" && maritime === 0 ? setMulticolis(Score.MULTI_PACKAGE) : null }}
             index={index}
           />
         ))}

@@ -9,9 +9,12 @@ import expe3 from "../../assets/images/expe3.png";
 import expe4 from "../../assets/images/expe4.png";
 import expe5 from "../../assets/images/expe5.png";
 import { Button } from "../button";
+import { useScore } from "../../../setup/context/score.context";
+import { Score } from "../../../setup/enum/score.enum";
 
 export const ExpeditionForm: FC = () => {
   const { setStep, step, progressBar, setProgressBar } = useUser();
+  const { maritime, setMaritime, setExpress, setDelivery, setMessaging, setCourier } = useScore();
   const [response, setResponse] = useState([
     {
       label: "Coursier",
@@ -54,7 +57,13 @@ export const ExpeditionForm: FC = () => {
           <ResponseCard
             label={item.label}
             logo={item.logo}
-            handleClick={handleClick}
+            handleClick={() => {
+              item.label === "Coursier" && maritime === 0 ? setCourier(Score.COURIER): null;
+              item.label === "Messagerie" && maritime === 0 ? setMessaging(Score.MESSAGING): null;
+              item.label === "Express" && maritime === 0 ? setExpress(Score.EXPRESS): null;
+              item.label === "Maritime" ? setMaritime(Score.MARITIME): null;
+              item.label === "Affraitement" && maritime === 0 ? setDelivery(Score.AFFRER): null;
+            }}
             index={index}
           />
         ))}

@@ -15,7 +15,7 @@ export const App: FC = () => {
   return (
     <Layout>
       <>
-        <p className="text-black text-opacity-50 lg:hidden">Etape {step}/5</p>
+      {step < 6 && <p className="text-black text-opacity-50 lg:hidden">Etape {step}/5</p>}
         <br />
         <div className="lg:grid lg:grid-cols-12 lg:grid-rows-2">
           {window.innerWidth > 1024 && <SideBar />}
@@ -24,8 +24,8 @@ export const App: FC = () => {
           {step === 3 && <TransporterForm />}
           {step === 4 && <MultiColisForm />}
           {step === 5 && <BillForm />}
+          {step === 6 && <EmailForm />}
         </div>
-        <EmailForm/>
       </>
     </Layout>
   );

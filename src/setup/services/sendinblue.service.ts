@@ -1,22 +1,23 @@
-import { REACT_APP_SENDINBLUE_API_KEY } from '../../../env';
+import { REACT_APP_SENDINBLUE_API_KEY } from "../../../env";
+import { useScore } from "../context/score.context";
+import { emailTemplate } from "../templates/email.template";
 
-const sendEmail = async (to, subject, content) => {
-  const apiKey = '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';
+const sendEmail = async (to: string, finalScore: number, defaultScore: number, region: number, multicolis: number, delivery: number) => {
   const url = 'https://api.sendinblue.com/v3/smtp/email';
 
   const data = {
     sender: {
-      name: 'Your Name',
+      name: 'Datafret',
       email: 'your_email@example.com',
     },
     to: [{ email: to }],
-    subject: subject,
-    htmlContent: content,
+    subject: 'Datafret - Votre pourcentage d\'économie',
+    htmlContent: `${emailTemplate(finalScore,defaultScore,region,multicolis,delivery)}`,
   };
 
   const headers = {
     'Content-Type': 'application/json',
-    'api-key': apiKey,
+    'api-key': REACT_APP_SENDINBLUE_API_KEY,
   };
 
   const response = await fetch(url, {

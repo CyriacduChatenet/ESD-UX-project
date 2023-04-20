@@ -29,7 +29,7 @@ export const TransporterForm: FC = () => {
 
     return (
     <div className="lg:col-span-9 lg:ml-20 lg:mt-10">
-        <p className="col-span-4 lg:grid-col-span-9 row-span-1 text-[#022AB1] font-medium text-xl">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
+        <p className="col-span-4 lg:grid-col-span-9 row-span-1 text-[#022AB1] font-medium text-xl">Avec combien de transporteurs travaillez vous ?</p>
         <form action="" className="col-span-4 row-span-1 flex flex-wrap">
         {response.map((item, index) => (
           <ResponseCard

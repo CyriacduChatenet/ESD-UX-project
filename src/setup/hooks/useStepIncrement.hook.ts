@@ -9,7 +9,7 @@ export class useStepHook {
     setProgressBar: Dispatch<SetStateAction<number>>
   ) => {
     e.preventDefault();
-    if (step < 5) {
+    if (step < 6) {
       setStep((prevState) => (prevState += 1));
     }
     if (progressBar < 100) {
