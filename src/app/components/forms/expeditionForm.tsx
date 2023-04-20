@@ -64,7 +64,6 @@ export const ExpeditionForm: FC = () => {
   };
 
 
-
   return (
     <div className="lg:col-span-9 lg:ml-20 lg:mt-10">
       <p className="col-span-4 row-span-1 text-[#022AB1] text-xl font-medium lg:mb-8">
@@ -94,20 +93,6 @@ export const ExpeditionForm: FC = () => {
           <span className="mx-2">{option.label}</span>
         </label>
       ))}
-        {/* {response.map((item, index) => (
-          <ResponseCard
-            label={item.label}
-            logo={item.logo}
-            handleClick={() => {
-              item.label === "Coursier" && maritime === 0 ? setCourier(Score.COURIER): null;
-              item.label === "Messagerie" && maritime === 0 ? setMessaging(Score.MESSAGING): null;
-              item.label === "Express" && maritime === 0 ? setExpress(Score.EXPRESS): null;
-              item.label === "Maritime" ? setMaritime(Score.MARITIME): null;
-              item.label === "Affraitement" && maritime === 0 ? setDelivery(Score.AFFRER): null;
-            }}
-            index={index}
-          />
-        ))} */}
       </form>
       <br />
       <div className="col-span-4 lg:grid-col-span-9 row-span-1 fixed left-0 right-0 bottom-20 flex justify-around items-center">

@@ -1,6 +1,4 @@
-import React, { FC, MouseEvent, useState } from "react";
-import { useStepHook } from "../../../setup/hooks/useStepIncrement.hook";
-import { useUser } from "../../../setup/context/user.context";
+import React, { FC, useState } from "react";
 import { useScore } from "../../../setup/context/score.context";
 import { ResponseCard } from "../responseCard";
 import { Button } from "../button";
@@ -12,17 +10,17 @@ import colis3 from '../../assets/images/colis3.png'
 import colis4 from '../../assets/images/colis4.png'
 
 export const MultiColisForm: FC = () => {
-  const { setStep, step, progressBar, setProgressBar } = useUser();
   const { setRegion, setMulticolis, maritime } = useScore();
-  const useStep = new useStepHook();
 
   const [firstResponse, setFirstResponse] = useState([
     {
       label: "oui",
+      value: "oui",
       logo: colis1,
     },
     {
       label: "non",
+      value: "non",
       logo: colis2,
     }
   ]);
@@ -30,13 +28,34 @@ export const MultiColisForm: FC = () => {
   const [secondResponse, setSecondResponse] = useState([
     {
       label: "oui",
+      value: "oui",
       logo: colis3,
     },
     {
       label: "non",
+      value: "non",
       logo: colis4,
     }
   ]);
+
+  const [selected, setSelected] = useState<any[]>([]);
+  const [selectedSecond, setSelectedSecond] = useState<any[]>([]);
+
+  const handleSelect = (value) => {
+    if (selected.includes(value)) {
+      setSelected(selected.filter((val) => val !== value));
+    } else {
+      setSelected([...selected, value]);
+    }
+  };
+
+  const handleSelectSecond = (value) => {
+    if (selectedSecond.includes(value)) {
+      setSelectedSecond(selectedSecond.filter((val) => val !== value));
+    } else {
+      setSelectedSecond([...selected, value]);
+    }
+  };
 
 
   return (
@@ -48,14 +67,30 @@ export const MultiColisForm: FC = () => {
         className="col-span-4 row-span-1 flex flex-wrap"
         action=""
       >
-        {firstResponse.map((item, index) => (
+         {firstResponse.map((option) => (
+        <label key={option.value} className={`py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
+          <input
+            type="checkbox"
+            value={option.value}
+            checked={selected.includes(option.value)}
+            onChange={() => { 
+              option.label === "oui" && maritime === 0 ? setRegion(Score.INTERNATIONAL_ONLY) : null;
+              handleSelect(option.value)
+            }}
+            className="hidden"
+          />
+          {option.logo && <img src={option.logo} alt={option.label} className="w-8 h-8 mx-2" />}
+          <span className="mx-2">{option.label}</span>
+        </label>
+      ))}
+        {/* {firstResponse.map((item, index) => (
           <ResponseCard
             label={item.label}
             logo={item.logo}
-            handleClick={() => { item.label === "oui" && maritime === 0 ? setRegion(Score.INTERNATIONAL_ONLY) : null }}
+            handleChange={() => { item.label === "oui" && maritime === 0 ? setRegion(Score.INTERNATIONAL_ONLY) : null }}
             index={index}
           />
-        ))}
+        ))} */}
       </form>
       <br />
       <p className=" text-[#022AB1] font-medium text-xl">
@@ -65,14 +100,29 @@ export const MultiColisForm: FC = () => {
         className="col-span-4 row-span-1 flex flex-wrap"
         action=""
       >
-        {secondResponse.map((item, index) => (
+        {secondResponse.map((option) => (
+        <label key={option.value} className={`py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selectedSecond.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
+          <input
+            type="checkbox"
+            value={option.value}
+            checked={selectedSecond.includes(option.value)}
+            onChange={() => { option.label === "oui" && maritime === 0 ? setMulticolis(Score.MULTI_PACKAGE) : null;
+              handleSelectSecond(option.value)
+            }}
+            className="hidden"
+          />
+          {option.logo && <img src={option.logo} alt={option.label} className="w-8 h-8 mx-2" />}
+          <span className="mx-2">{option.label}</span>
+        </label>
+      ))}
+        {/* {secondResponse.map((item, index) => (
           <ResponseCard
             label={item.label}
             logo={item.logo}
-            handleClick={() => { item.label === "oui" && maritime === 0 ? setMulticolis(Score.MULTI_PACKAGE) : null }}
+            handleChange={() => { item.label === "oui" && maritime === 0 ? setMulticolis(Score.MULTI_PACKAGE) : null }}
             index={index}
           />
-        ))}
+        ))} */}
       </form>
       <br />
       <div className="col-span-4 lg:col-span-9 row-span-1 fixed left-0 right-0 bottom-20 flex justify-around items-center">
