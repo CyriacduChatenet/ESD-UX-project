@@ -12,8 +12,8 @@ import { useUser } from "../../setup/context/user.context";
 export const Navbar: FC = () => {
     const { step } = useUser();
     return (
-        <nav className="mx-2 col-span-4 row-span-1 h-full flex justify-around lg:justify-start items-center lg:border-gray-800 lg:border-solid lg:border-b-2 lg:border-opacity-10">
-            <img src={logo} alt="logo" className="col-span-2 lg:w-1/6" />
+        <nav className="mx-2 col-span-4 row-span-1 h-full flex justify-around items-center lg:border-gray-800 lg:border-solid lg:border-b-2">
+            <img src={logo} alt="logo" className="" />
             {
             window.innerWidth < 1024 && step === 1 ? <img src={imgPerso1} alt="illustration" className="" /> :
             window.innerWidth < 1024 && step === 2 ? <img src={imgPerso2} alt="illustration" className="" /> :

@@ -17,7 +17,7 @@ export const App: FC = () => {
       <>
       {step < 6 && <p className="text-black text-opacity-50 lg:hidden">Etape {step}/5</p>}
         <br />
-        <div className="lg:grid lg:grid-cols-12 lg:grid-rows-2">
+        <div className="">
           {window.innerWidth > 1024 && <SideBar />}
           {step === 1 && <ExpeditionForm />}
           {step === 2 && <SpendForm />}

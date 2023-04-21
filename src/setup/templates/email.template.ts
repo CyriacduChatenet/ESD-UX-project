@@ -1,4 +1,9 @@
-export const emailTemplate  = (potentialEconomy: number, default_value: number, international_value: number, multi_colis: number, transport_value: number) => {
+export const emailTemplate  = (potentialEconomy: number, default_value: number, international_value: number, multi_colis: number, transport_value: number, courier: number,
+  express: number,
+  messaging: number,
+  excel: number,
+  noControl: number,
+  maritime: number) => {
     return `
     <table
       cellspacing="0"
@@ -535,6 +540,51 @@ export const emailTemplate  = (potentialEconomy: number, default_value: number, 
                                                           Fret</span
                                                         >
                                                       </p>
+                                                      <p style="margin: 0">
+                                                      <span
+                                                        style="
+                                                          font-family: 'Trebuchet ms',
+                                                            helvetica, sans-serif;
+                                                        "
+                                                        >${courier}% via le cheminement par coursier</span
+                                                      >
+                                                    </p>
+                                                    <p style="margin: 0">
+                                                    <span
+                                                      style="
+                                                        font-family: 'Trebuchet ms',
+                                                          helvetica, sans-serif;
+                                                      "
+                                                      >${express}% via la livraison express</span
+                                                    >
+                                                  </p>
+                                                  <p style="margin: 0">
+                                                  <span
+                                                    style="
+                                                      font-family: 'Trebuchet ms',
+                                                        helvetica, sans-serif;
+                                                    "
+                                                    >${messaging}% via le système de messagerie</span
+                                                  >
+                                                </p>
+                                                <p style="margin: 0">
+                                                <span
+                                                  style="
+                                                    font-family: 'Trebuchet ms',
+                                                      helvetica, sans-serif;
+                                                  "
+                                                  >${maritime}% via le transport maritime</span
+                                                >
+                                              </p>
+                                              <p style="margin: 0">
+                                              <span
+                                                style="
+                                                  font-family: 'Trebuchet ms',
+                                                    helvetica, sans-serif;
+                                                "
+                                                >${excel ? excel : noControl}% via votre système de contrôle</span
+                                              >
+                                            </p>
                                                     </div>
                                                   </td>
                                                 </tr>

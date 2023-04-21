@@ -18,6 +18,7 @@ const EmailForm = () => {
     noControl,
     defaultScore,
     finalScore,
+    maritime
   } = useScore();
 
   const [credentials, setCredentials] = useState([]);
@@ -35,7 +36,13 @@ const EmailForm = () => {
         defaultScore,
         region,
         multicolis,
-        delivery
+        delivery,
+        courier,
+        express,
+        messaging,
+        excel,
+        noControl,
+        maritime
       );
       console.log("Email sent:", response);
       // Display a success message to the user
@@ -46,7 +53,7 @@ const EmailForm = () => {
   };
 
   return (
-    <div className="lg:col-span-9 lg:ml-20 lg:mt-10 h-[60vh]">
+    <div className="h-[60vh]">
       <div className="w-full mb-8 flex justify-center items-center">
         <img src={check} alt="" />
       </div>
@@ -56,7 +63,7 @@ const EmailForm = () => {
       <p className="italic lg:text-center">Recevez notre rapport complet par mail</p>
       <form
         action=""
-        className="col-span-4 lg:grid-col-span-9 row-span-1 flex flex-wrap"
+        className="col-span-4 row-span-1 flex flex-wrap"
       >
         <div className="bg-transparent row-span-1 flex flex-col justify-around items-center">
         <label className="text-[#022AB1] font-bold my-2 w-full">
@@ -92,7 +99,7 @@ const EmailForm = () => {
         </div>
       </form>
       <br />
-      <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center lg:grid-col-span-9">
+      <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center">
         <Button type={"Previous"} />
           <Button type={"Envoyer"} handleClick={handleSubmit} />
       </div>

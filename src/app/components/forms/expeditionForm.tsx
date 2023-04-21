@@ -65,16 +65,16 @@ export const ExpeditionForm: FC = () => {
 
 
   return (
-    <div className="lg:col-span-9 lg:mt-10">
-      <p className="col-span-4 row-span-1 text-[#022AB1] text-xl font-medium lg:mb-8">
+    <div className="">
+      <p className="col-span-4 row-span-1 text-[#022AB1] text-xl font-medium">
         Par quel moyen(s) expédiez-vous vos marchandises ?
       </p>
       <form
-        className="col-span-4 lg:col-span-9 lg:grid lg:grid-cols-6 row-span-1 lg:h-full flex flex-wrap justify-between mt-12"
+        className="col-span-4 row-span-1 lg:h-full flex flex-wrap justify-between mt-12"
         action=""
       >
          {response.map((option) => (
-        <label key={option.value} className={`lg:col-span-3 lg:mr-6 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
+        <label key={option.value} className={`py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
           <input
             type="checkbox"
             value={option.value}
@@ -95,7 +95,7 @@ export const ExpeditionForm: FC = () => {
       ))}
       </form>
       <br />
-      <div className="col-span-4 lg:grid-col-span-9 row-span-1 fixed left-0 right-0 bottom-20 flex justify-around items-center">
+      <div className="col-span-4 row-span-1 fixed left-0 right-0 bottom-20 flex justify-around items-center">
         <Button type={"Previous"} />
         <Button type={"Next"} />
       </div>

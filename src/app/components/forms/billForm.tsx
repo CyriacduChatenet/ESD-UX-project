@@ -48,7 +48,7 @@ export const BillForm: FC = () => {
       }
     };
     return (
-        <div className="lg:col-span-9 lg:ml-20 lg:mt-10">
+        <div className="">
             <p className="col-span-4 row-span-1 text-[#022AB1] font-medium text-xl">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
             <form className="col-span-4 row-span-2 flex flex-col items-center justify-around mt-8" action="">
             {response.map((option) => (
@@ -64,6 +64,7 @@ export const BillForm: FC = () => {
             }}
             className="hidden"
           />
+          {option.logo && <img src={option.logo} alt={option.label} className="w-8 h-8 mx-2" />}
           <span className="mx-2">{option.label}</span>
         </label>
       ))}

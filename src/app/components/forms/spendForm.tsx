@@ -38,7 +38,7 @@ export const SpendForm: FC = () => {
   };
 
   return (
-    <div className="lg:col-span-9 lg:ml-20 lg:mt-10">
+    <div className="">
       <p className="text-[#022AB1] font-medium text-xl">
         Combien votre entreprise dépense-t-elle en prestation de transport ?
       </p>
@@ -60,7 +60,7 @@ export const SpendForm: FC = () => {
       ))}
       </form>
       <br />
-      <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center lg:grid-col-span-9">
+      <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center">
         <Button type={"Previous"} />
         <Button type={"Next"} />
       </div>
