@@ -38,14 +38,14 @@ export const SpendForm: FC = () => {
   };
 
   return (
-    <div className="">
-      <p className="text-[#022AB1] font-medium text-xl">
+    <div className="lg:col-span-9 lg:grid lg:grid-cols-9 h-[60vh">
+      <p className="text-[#022AB1] font-medium text-xl lg:col-span-9">
         Combien votre entreprise dépense-t-elle en prestation de transport ?
       </p>
-      <p className="text-center italic">(Annuel, en €)</p>
-      <form action="" className="col-span-4 row-span-1 flex flex-wrap justify-between mt-8">
+      <p className="text-center italic lg:col-span-9">(Annuel, en €)</p>
+      <form action="" className="lg:col-span-9 lg:grid lg:grid-cols-6 lg:gap-4 col-span-4 row-span-1 flex flex-wrap justify-between mt-8">
       {response.map((option) => (
-        <label key={option.value} className={`py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
+        <label key={option.value} className={`lg:col-span-3 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
           <input
             type="checkbox"
             value={option.value}

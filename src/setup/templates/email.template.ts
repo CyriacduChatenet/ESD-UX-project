@@ -1016,7 +1016,7 @@ export const emailTemplate  = (potentialEconomy: number, default_value: number, 
                                                       <v:roundrect
                                                         xmlns:v="urn:schemas-microsoft-com:vml"
                                                         xmlns:w="urn:schemas-microsoft-com:office:word"
-                                                        href="https://datafret.com"
+                                                        href="https://datafret.com/sign-up/"
                                                         style="
                                                           v-text-anchor: middle;
                                                           height: 42px;

@@ -53,20 +53,22 @@ const EmailForm = () => {
   };
 
   return (
-    <div className="h-[60vh]">
-      <div className="w-full mb-8 flex justify-center items-center">
+    <div className="h-[60vh] lg:col-span-9 lg:grid lg:grid-cols-9">
+      {window.innerWidth < 1024 && <div className="w-full mb-8 lg:mb-0 flex justify-center items-center">
         <img src={check} alt="" />
-      </div>
-      <p className="text-[#022AB1] font-medium text-xl text-center">
+      </div>}
+      {window.innerWidth < 1024 ?  <p className="text-[#022AB1] font-medium text-xl text-center lg:col-span-9">
         Félicitations ! Vous pouvez faire des économies grâce à DataFret !
-      </p>
-      <p className="italic lg:text-center">Recevez notre rapport complet par mail</p>
+      </p> : <p className="text-[#022AB1] font-medium text-xl lg:col-span-9 lg:text-start">
+        Félicitations ! <br/> Vous pouvez faire des économies grâce à DataFret !
+      </p>}
+      {window.innerWidth < 1024 && <p className="italic lg:text-center lg:col-span-9">Recevez notre rapport complet par mail</p>}
       <form
         action=""
-        className="col-span-4 row-span-1 flex flex-wrap"
+        className="col-span-4 lg:col-span-9 row-span-1 flex flex-wrap"
       >
         <div className="bg-transparent row-span-1 flex flex-col justify-around items-center">
-        <label className="text-[#022AB1] font-bold my-2 w-full">
+        <label className="text-[#022AB1] font-bold my-2 w-full lg:col-span-9">
             Nom de l'entreprise
             <input
               type="text"
@@ -76,7 +78,7 @@ const EmailForm = () => {
               onChange={handleChange}
             />
           </label>
-        <label className="text-[#022AB1] font-bold my-2  w-full">
+        <label className="text-[#022AB1] font-bold my-2  w-full lg:col-span-9">
             Poste occupé
             <input
               type="text"
@@ -86,7 +88,7 @@ const EmailForm = () => {
               onChange={handleChange}
             />
           </label>
-          <label className="text-[#022AB1] font-bold my-2  w-full">
+          <label className="text-[#022AB1] font-bold my-2  w-full lg:col-span-9">
             Recevez notre rapport complet par mail
             <input
               type="email"

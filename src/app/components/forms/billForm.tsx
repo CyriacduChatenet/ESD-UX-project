@@ -48,11 +48,11 @@ export const BillForm: FC = () => {
       }
     };
     return (
-        <div className="">
-            <p className="col-span-4 row-span-1 text-[#022AB1] font-medium text-xl">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
-            <form className="col-span-4 row-span-2 flex flex-col items-center justify-around mt-8" action="">
+        <div className="lg:col-span-9 lg:grid lg:grid-cols-9 lg:h-[60vh]">
+            <p className="col-span-4 row-span-1 text-[#022AB1] font-medium text-xl lg:col-span-9">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
+            <form className="lg:col-span-9 lg:grid lg:grid-cols-12 lg:gap-4 col-span-4 row-span-2 flex flex-col items-center justify-around mt-8" action="">
             {response.map((option) => (
-        <label key={option.value} className={`py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
+        <label key={option.value} className={`lg:col-span-4 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
           <input
             type="checkbox"
             value={option.value}

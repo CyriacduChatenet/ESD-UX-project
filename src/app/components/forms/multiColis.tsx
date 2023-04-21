@@ -59,16 +59,16 @@ export const MultiColisForm: FC = () => {
 
 
   return (
-    <div className="">
-      <p className=" text-[#022AB1] font-medium text-xl">
+    <div className="lg:col-span-9 lg:grid lg:grid-cols-9 h-[60vh]">
+      <p className=" text-[#022AB1] font-medium text-xl lg:col-span-9">
         Expédiez vous vos colis à l’international ?
       </p>
       <form
-        className="col-span-4 row-span-1 flex flex-wrap justify-between items-center mt-4"
+        className="col-span-4 lg:col-span-9 lg:grid lg:grid-cols-6 lg:gap-4 row-span-1 flex flex-wrap justify-between items-center mt-4"
         action=""
       >
          {firstResponse.map((option) => (
-        <label key={option.value} className={`py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
+        <label key={option.value} className={`lg:col-span-3 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
           <input
             type="checkbox"
             value={option.value}
@@ -85,16 +85,16 @@ export const MultiColisForm: FC = () => {
       ))}
       </form>
       <br />
-      <p className=" text-[#022AB1] font-medium text-xl">
+      <p className=" text-[#022AB1] font-medium text-xl lg:col-span-9">
         Faites vous de l’expédition multi-colis ?
       </p>
-      <p className="italic mb-2"><span className="underline font-bold">Multi-colis</span> : Le transporteur accepte plusieurs colis, dit aussi envoi ou lot, soit un ensemble de colis remis en même temps et devant arriver ensemble chez le même destinataire.</p>
+      <p className="italic mb-2 lg:col-span-9"><span className="underline font-bold">Multi-colis</span> : Le transporteur accepte plusieurs colis, dit aussi envoi ou lot, soit un ensemble de colis remis en même temps et devant arriver ensemble chez le même destinataire.</p>
       <form
-        className="col-span-4 row-span-1 flex flex-wrap justify-between items-center"
+        className="lg:col-span-9 lg:grid lg:grid-cols-6 lg:gap-4 col-span-4 row-span-1 flex flex-wrap justify-between items-center"
         action=""
       >
         {secondResponse.map((option) => (
-        <label key={option.value} className={`py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selectedSecond.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
+        <label key={option.value} className={`lg:col-span-3 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selectedSecond.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
           <input
             type="checkbox"
             value={option.value}
