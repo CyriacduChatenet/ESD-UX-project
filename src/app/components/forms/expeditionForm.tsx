@@ -1,13 +1,13 @@
-import React, { FC, MouseEvent, useState } from "react";
+import React, { FC, useState } from "react";
 import { useUser } from "../../../setup/context/user.context";
 import { useStepHook } from "../../../setup/hooks/useStepIncrement.hook";
-import { ResponseCard } from "../responseCard";
 
 import expe1 from "../../assets/images/expe1.png";
 import expe2 from "../../assets/images/expe2.png";
 import expe3 from "../../assets/images/expe3.png";
 import expe4 from "../../assets/images/expe4.png";
 import expe5 from "../../assets/images/expe5.png";
+import perso1 from "../../assets/images/illus-bleu-clair-34.png";
 import { Button } from "../button";
 import { useScore } from "../../../setup/context/score.context";
 import { Score } from "../../../setup/enum/score.enum";
