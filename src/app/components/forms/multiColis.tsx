@@ -68,7 +68,7 @@ export const MultiColisForm: FC = () => {
         action=""
       >
          {firstResponse.map((option) => (
-        <label key={option.value} className={`lg:col-span-3 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
+        <label key={option.value} className={`lg:justify-center lg:items-center lg:h-28 lg:col-span-3 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
           <input
             type="checkbox"
             value={option.value}
@@ -94,7 +94,7 @@ export const MultiColisForm: FC = () => {
         action=""
       >
         {secondResponse.map((option) => (
-        <label key={option.value} className={`lg:col-span-3 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selectedSecond.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
+        <label key={option.value} className={`lg:justify-center lg:items-center lg:h-28 lg:col-span-3 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selectedSecond.includes(option.value) ? 'text-[#3D83F8] bg-white border-[#3D83F8]' : ''}`}>
           <input
             type="checkbox"
             value={option.value}

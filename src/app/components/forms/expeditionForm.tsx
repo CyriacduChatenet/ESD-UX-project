@@ -30,24 +30,24 @@ export const ExpeditionForm: FC = () => {
       logo: expe1,
     },
     {
-      label: "Messagerie",
-      value: "messagerie",
-      logo: expe2,
-    },
-    {
       label: "Express",
       value: "express",
       logo: expe3,
     },
     {
-      label: "Maritime",
-      value: "maritime",
-      logo: expe4,
+      label: "Messagerie",
+      value: "messagerie",
+      logo: expe2,
     },
     {
       label: "Affraitement",
       value: "affraitement",
       logo: expe5,
+    },
+    {
+      label: "Maritime",
+      value: "maritime",
+      logo: expe4,
     },
   ]);
 
@@ -74,7 +74,7 @@ export const ExpeditionForm: FC = () => {
         action=""
       >
          {response.map((option) => (
-        <label key={option.value} className={`lg:col-span-3 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'bg-[#3D83F8] text-white' : ''}`}>
+        <label key={option.value} className={`lg:justify-center lg:items-center lg:h-28 lg:col-span-3 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'text-[#3D83F8] bg-white border-[#3D83F8]' : ''}`}>
           <input
             type="checkbox"
             value={option.value}

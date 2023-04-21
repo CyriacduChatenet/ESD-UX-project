@@ -73,7 +73,7 @@ const EmailForm = () => {
             <input
               type="text"
               name="company"
-              className="border-2 border-solid border-[#020B28] text-[#020B28] font-normal py-2 px-4 w-full"
+              className="border-2 border-solid border-[#020B28] text-[#020B28] font-normal py-2 px-4 w-full rounded"
               placeholder="Entreprise"
               onChange={handleChange}
             />
@@ -83,7 +83,7 @@ const EmailForm = () => {
             <input
               type="text"
               name="company"
-              className="border-2 border-solid border-[#020B28] text-[#020B28] font-normal py-2 px-4 w-full"
+              className="border-2 border-solid border-[#020B28] text-[#020B28] font-normal py-2 px-4 w-full rounded"
               placeholder="Directeur Logistique"
               onChange={handleChange}
             />
@@ -93,7 +93,7 @@ const EmailForm = () => {
             <input
               type="email"
               value={to}
-              className="border-2 border-solid border-[#020B28] text-[#020B28] font-normal py-2 px-4 w-full"
+              className="border-2 border-solid border-[#020B28] text-[#020B28] font-normal py-2 px-4 w-full rounded"
               placeholder="john.doe@gmail.com"
               onChange={(event) => setTo(event.target.value)}
             />
