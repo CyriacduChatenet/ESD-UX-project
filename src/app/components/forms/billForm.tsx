@@ -1,79 +1,107 @@
 import React, { FC, MouseEvent, useState } from "react";
 
-import facture1 from '../../assets/images/facture1.png'
-import facture2 from '../../assets/images/facture2.png'
-import facture3 from '../../assets/images/facture3.png'
+import facture1 from "../../assets/images/facture1.png";
+import facture2 from "../../assets/images/facture2.png";
+import facture3 from "../../assets/images/facture3.png";
 import { ResponseCard } from "../responseCard";
-import { Button } from '../button';
-import { useScore } from '../../../setup/context/score.context';
+import perso1 from "../../assets/images/datafret-perso-41.png";
+import { Button } from "../button";
+import { useScore } from "../../../setup/context/score.context";
 import { Score } from "../../../setup/enum/score.enum";
 
 export const BillForm: FC = () => {
-    const { setExcel, setNoControl, maritime } = useScore()
-    const [credentials, setCredentials] = useState({});
+  const { setExcel, setNoControl, maritime } = useScore();
+  const [credentials, setCredentials] = useState({});
 
-    const [response, setResponse] = useState([
-        {
-          label: "Via logiciel dédié",
-          logo: facture1,
-          value: "logiciel",
-        },
-        {
-          label: "Via Excel",
-          logo: facture2,
-          value: "excel",
-        },
-        {
-          label: "Je ne fais pas de contrôle",
-          logo: facture3,
-          value: "noControl",
-        },
-      ]);
+  const [response, setResponse] = useState([
+    {
+      label: "Via logiciel dédié",
+      logo: facture1,
+      value: "logiciel",
+    },
+    {
+      label: "Via Excel",
+      logo: facture2,
+      value: "excel",
+    },
+    {
+      label: "Je ne fais pas de contrôle",
+      logo: facture3,
+      value: "noControl",
+    },
+  ]);
 
-    const handleClick = (e: MouseEvent<HTMLButtonElement>,) => {
-        e.preventDefault();
-        const { value } = e.target as HTMLButtonElement;
-        setCredentials({[value]: value });
-    };
-    
-    const [selected, setSelected] = useState<any[]>([]);
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const { value } = e.target as HTMLButtonElement;
+    setCredentials({ [value]: value });
+  };
 
-    const handleSelect = (e, value) => {
-      if (selected.includes(value)) {
-        setSelected(selected.filter((val) => val !== value));
-      } else {
-        setSelected([...selected, value]);
-        const { value2 } = e.target;
-        setCredentials({[value2]: value2 });
-      }
-    };
-    return (
-        <div className="lg:col-span-9 lg:grid lg:grid-cols-9 lg:h-[60vh]">
-            <p className="col-span-4 row-span-1 text-[#022AB1] font-medium text-xl lg:col-span-9">Combien votre entreprise dépense-t-elle en prestation de transport ?</p>
-            <form className="lg:col-span-9 lg:grid lg:grid-cols-12 lg:gap-4 col-span-4 row-span-2 flex flex-col items-center justify-around mt-8" action="">
-            {response.map((option) => (
-        <label key={option.value} className={`lg:h-28 lg:justify-center items-center lg:col-span-4 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'text-[#3D83F8] bg-white border-[#3D83F8]' : ''}`}>
-          <input
-            type="checkbox"
-            value={option.value}
-            checked={selected.includes(option.value)}
-            onChange={(e) => {
-              handleSelect(e, option.value);
-              option.label === "Via Excel" && maritime === 0 ? setExcel(Score.EXCEL) : null
-              option.label === "Je ne fais pas de contrôle" && maritime === 0 ? setNoControl(Score.NO_CONTROL) : null
-            }}
-            className="hidden"
-          />
-          {option.logo && <img src={option.logo} alt={option.label} className="w-8 h-8 mx-2" />}
-          <span className="mx-2">{option.label}</span>
-        </label>
-      ))}
+  const [selected, setSelected] = useState<any[]>([]);
+
+  const handleSelect = (e, value) => {
+    if (selected.includes(value)) {
+      setSelected(selected.filter((val) => val !== value));
+    } else {
+      setSelected([...selected, value]);
+      const { value2 } = e.target;
+      setCredentials({ [value2]: value2 });
+    }
+  };
+  return (
+    <div className="lg:col-span-6 lg:grid lg:grid-cols-9 lg:h-[60vh]">
+      <p className="col-span-4 row-span-1 text-[#022AB1] font-medium text-xl lg:col-span-9">
+        Combien votre entreprise dépense-t-elle en prestation de transport ?
+      </p>
+      {window.innerWidth > 1024 && (
+        <div className="lg:absolute lg:z-[-5] lg:bottom-40 lg:right-0 lg:w-96 lg:h-72 lg:flex lg:justify-center lg:items-center">
+          <img src={perso1} alt="illus" />
+        </div>
+      )}
+      <form
+        className="lg:col-span-9 lg:grid lg:grid-cols-12 lg:gap-4 col-span-4 row-span-2 flex flex-col items-center justify-around mt-8"
+        action=""
+      >
+        {response.map((option) => (
+          <label
+            key={option.value}
+            className={`lg:h-28 lg:justify-center items-center lg:col-span-4 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${
+              selected.includes(option.value)
+                ? "text-[#3D83F8] bg-white border-[#3D83F8]"
+                : ""
+            }`}
+          >
+            <input
+              type="checkbox"
+              value={option.value}
+              checked={selected.includes(option.value)}
+              onChange={(e) => {
+                handleSelect(e, option.value);
+                option.label === "Via Excel" && maritime === 0
+                  ? setExcel(Score.EXCEL)
+                  : null;
+                option.label === "Je ne fais pas de contrôle" && maritime === 0
+                  ? setNoControl(Score.NO_CONTROL)
+                  : null;
+              }}
+              className="hidden"
+            />
+            {option.logo && (
+              <img
+                src={option.logo}
+                alt={option.label}
+                className="w-8 h-8 mx-2"
+              />
+            )}
+            <span className="mx-2">{option.label}</span>
+          </label>
+        ))}
       </form>
-        <br />
-        <div className="col-span-4 row-span-1 fixed left-0 right-0 bottom-20 flex justify-around items-center">
+      <br />
+      <div className="col-span-4 row-span-1 fixed left-0 right-0 bottom-20 flex justify-around items-center">
         <Button type={"Previous"} />
         <Button type={"Next"} />
       </div>
     </div>
-    );
+  );
 };

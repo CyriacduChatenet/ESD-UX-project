@@ -7,7 +7,7 @@ import expe2 from "../../assets/images/expe2.png";
 import expe3 from "../../assets/images/expe3.png";
 import expe4 from "../../assets/images/expe4.png";
 import expe5 from "../../assets/images/expe5.png";
-import perso1 from "../../assets/images/illus-bleu-clair-34.png";
+import perso1 from "../../assets/images/datafret-perso-11.png";
 import { Button } from "../button";
 import { useScore } from "../../../setup/context/score.context";
 import { Score } from "../../../setup/enum/score.enum";
@@ -26,7 +26,7 @@ export const ExpeditionForm: FC = () => {
   const [response, setResponse] = useState([
     {
       label: "Coursier",
-      value: 'coursier',
+      value: "coursier",
       logo: expe1,
     },
     {
@@ -63,36 +63,63 @@ export const ExpeditionForm: FC = () => {
     }
   };
 
-
   return (
-    <div className="lg:col-span-9 lg:grid lg:grid-cols-9 h-[60vh">
+    <div className="lg:col-span-6 lg:grid lg:grid-cols-9 h-[60vh">
       <p className="col-span-4 row-span-1 text-[#022AB1] text-xl font-medium lg:col-span-9">
         Par quel moyen(s) expédiez-vous vos marchandises ?
       </p>
+      {window.innerWidth > 1024 && (
+        <div className="lg:absolute lg:z-[-5] lg:bottom-40 lg:right-0 lg:w-96 lg:h-72 lg:flex lg:justify-center lg:items-center">
+          <img src={perso1} alt="illus" />
+        </div>
+      )}
       <form
         className="lg:col-span-9 col-span-4 row-span-1 lg:h-full flex flex-wrap justify-between mt-12 lg:grid lg:grid-cols-6 lg:gap-6"
         action=""
       >
-         {response.map((option) => (
-        <label key={option.value} className={`lg:justify-center lg:items-center lg:h-28 lg:col-span-3 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${selected.includes(option.value) ? 'text-[#3D83F8] bg-white border-[#3D83F8]' : ''}`}>
-          <input
-            type="checkbox"
-            value={option.value}
-            checked={selected.includes(option.value)}
-            onChange={() => {
-              handleSelect(option.value)
-              option.label === "Coursier" && maritime === 0 ? setCourier(Score.COURIER): null;
-              option.label === "Messagerie" && maritime === 0 ? setMessaging(Score.MESSAGING): null;
-              option.label === "Express" && maritime === 0 ? setExpress(Score.EXPRESS): null;
-              option.label === "Maritime" ? setMaritime(Score.MARITIME): null;
-              option.label === "Affraitement" && maritime === 0 ? setDelivery(Score.AFFRER): null;
-            }}
-            className="hidden"
-          />
-          {option.logo && <img src={option.logo} alt={option.label} className="w-8 h-8 mx-2" />}
-          <span className="mx-2">{option.label}</span>
-        </label>
-      ))}
+        {response.map((option) => (
+          <label
+            key={option.value}
+            className={`lg:justify-center lg:items-center lg:h-28 lg:col-span-3 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${
+              selected.includes(option.value)
+                ? "text-[#3D83F8] bg-white border-[#3D83F8]"
+                : ""
+            }`}
+          >
+            <input
+              type="checkbox"
+              value={option.value}
+              checked={selected.includes(option.value)}
+              onChange={() => {
+                handleSelect(option.value);
+                option.label === "Coursier" && maritime === 0
+                  ? setCourier(Score.COURIER)
+                  : null;
+                option.label === "Messagerie" && maritime === 0
+                  ? setMessaging(Score.MESSAGING)
+                  : null;
+                option.label === "Express" && maritime === 0
+                  ? setExpress(Score.EXPRESS)
+                  : null;
+                option.label === "Maritime"
+                  ? setMaritime(Score.MARITIME)
+                  : null;
+                option.label === "Affraitement" && maritime === 0
+                  ? setDelivery(Score.AFFRER)
+                  : null;
+              }}
+              className="hidden"
+            />
+            {option.logo && (
+              <img
+                src={option.logo}
+                alt={option.label}
+                className="w-8 h-8 mx-2"
+              />
+            )}
+            <span className="mx-2">{option.label}</span>
+          </label>
+        ))}
       </form>
       <br />
       <div className="col-span-4 row-span-1 fixed left-0 right-0 bottom-20 flex justify-around items-center">
