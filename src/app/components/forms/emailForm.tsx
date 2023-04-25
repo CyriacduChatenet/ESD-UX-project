@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from "react";
 import { SendinBlueService } from "../../../setup/services/sendinblue.service";
 import { Button } from "../button";
 import { useScore } from "../../../setup/context/score.context";
+import { useAnswer } from "../../../setup/context/answer.context";
 
 import check from "../../assets/images/check.png";
 import perso1 from "../../assets/images/datafret-perso-51.png";
@@ -22,6 +23,21 @@ const EmailForm = () => {
     maritime,
   } = useScore();
 
+  const {
+    expedition,
+    setExpedition,
+    spend,
+    setSpend,
+    transporter,
+    setTransporter,
+    international,
+    setInternational,
+    multiColis,
+    setMultiColis,
+    control,
+    setControl,
+  } = useAnswer();
+
   const [credentials, setCredentials] = useState({});
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -30,16 +46,13 @@ const EmailForm = () => {
   };
 
   const handleSendData = async () => {
-    const response = await SendinBlueService.sendData(credentials, {
-      courier,
-      express,
-      messaging,
-      delivery,
-      maritime,
-      region,
-      multicolis,
-      excel,
-      noControl,
+    await SendinBlueService.sendData(credentials, {
+      expedition,
+      spend,
+      transporter,
+      international,
+      multiColis,
+      control,
     });
   };
 
@@ -127,7 +140,10 @@ const EmailForm = () => {
               value={to}
               className="border-2 border-solid border-[#020B28] text-[#020B28] font-normal py-2 px-4 w-full rounded"
               placeholder="john.doe@gmail.com"
-              onChange={(event) => setTo(event.target.value)}
+              onChange={(event) => {
+                setTo(event.target.value);
+                handleChange(event);
+              }}
             />
           </label>
         </div>

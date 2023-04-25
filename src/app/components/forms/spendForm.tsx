@@ -4,27 +4,29 @@ import { useUser } from "../../../setup/context/user.context";
 import { ResponseCard } from "../responseCard";
 import { Button } from "../button";
 import perso1 from "../../assets/images/datafret-perso-21.png";
+import { useAnswer } from "../../../setup/context/answer.context";
 
 export const SpendForm: FC = () => {
   const { setStep, step, progressBar, setProgressBar } = useUser();
   const useStep = new useStepHook();
+  const { setSpend } = useAnswer();
 
   const [response, setResponse] = useState([
     {
       label: "Moins de 100k",
-      value: "100k",
+      value: 1000000,
     },
     {
       label: "Entre 100k et 500k",
-      value: "500k",
+      value: 500000,
     },
     {
       label: "Entre 500k et 1M",
-      value: "1M",
+      value: 1000000,
     },
     {
       label: "Plus de 1M",
-      value: "1M+",
+      value: 2000000,
     },
   ]);
 
@@ -35,6 +37,7 @@ export const SpendForm: FC = () => {
       setSelected(selected.filter((val) => val !== value));
     } else {
       setSelected([...selected, value]);
+      setSpend(value);
     }
   };
 

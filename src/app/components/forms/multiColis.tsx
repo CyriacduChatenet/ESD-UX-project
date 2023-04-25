@@ -9,9 +9,11 @@ import colis2 from "../../assets/images/colis2.png";
 import colis3 from "../../assets/images/colis3.png";
 import colis4 from "../../assets/images/colis4.png";
 import perso1 from "../../assets/images/datafret-perso-31.png";
+import { useAnswer } from "../../../setup/context/answer.context";
 
 export const MultiColisForm: FC = () => {
   const { setRegion, setMulticolis, maritime } = useScore();
+  const { international, setInternational, multiColis, setMultiColis } = useAnswer();
 
   const [firstResponse, setFirstResponse] = useState([
     {
@@ -47,6 +49,11 @@ export const MultiColisForm: FC = () => {
       setSelected(selected.filter((val) => val !== value));
     } else {
       setSelected([...selected, value]);
+      if(value === "oui") {
+        setInternational(true);
+      } else {
+        setInternational(false);
+      }
     }
   };
 
@@ -55,6 +62,11 @@ export const MultiColisForm: FC = () => {
       setSelectedSecond(selectedSecond.filter((val) => val !== value));
     } else {
       setSelectedSecond([...selected, value]);
+      if(value === "oui") {
+        setMultiColis(true);
+      } else {
+        setMultiColis(false);
+      }
     }
   };
 

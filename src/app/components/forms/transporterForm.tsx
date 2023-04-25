@@ -4,27 +4,29 @@ import { useUser } from "../../../setup/context/user.context";
 import { ResponseCard } from "../responseCard";
 import { Button } from "../button";
 import perso1 from "../../assets/images/datafret-perso-21.png";
+import { useAnswer } from "../../../setup/context/answer.context";
 
 export const TransporterForm: FC = () => {
   const { setStep, step, progressBar, setProgressBar } = useUser();
   const useStep = new useStepHook();
+  const { setTransporter } = useAnswer();
 
   const [response, setResponse] = useState([
     {
       label: "Entre 1 et 5",
-      value: "1-5",
+      value: 1,
     },
     {
       label: "Entre 5 et 10",
-      value: "5-10",
+      value: 5,
     },
     {
       label: "Entre 10 et 20",
-      value: "10-20",
+      value: 10,
     },
     {
       label: "Plus de 20",
-      value: "20+",
+      value: 20,
     },
   ]);
 
@@ -35,6 +37,7 @@ export const TransporterForm: FC = () => {
       setSelected(selected.filter((val) => val !== value));
     } else {
       setSelected([...selected, value]);
+      setTransporter(value);
     }
   };
 

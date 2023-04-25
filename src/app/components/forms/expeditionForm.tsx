@@ -11,6 +11,7 @@ import perso1 from "../../assets/images/datafret-perso-11.png";
 import { Button } from "../button";
 import { useScore } from "../../../setup/context/score.context";
 import { Score } from "../../../setup/enum/score.enum";
+import { useAnswer } from "../../../setup/context/answer.context";
 
 export const ExpeditionForm: FC = () => {
   const { setStep, step, progressBar, setProgressBar } = useUser();
@@ -22,6 +23,8 @@ export const ExpeditionForm: FC = () => {
     setMessaging,
     setCourier,
   } = useScore();
+
+  const { setExpedition, expedition } = useAnswer();
 
   const [response, setResponse] = useState([
     {
@@ -92,22 +95,32 @@ export const ExpeditionForm: FC = () => {
               checked={selected.includes(option.value)}
               onChange={() => {
                 handleSelect(option.value);
-                option.label === "Coursier" && maritime === 0
-                  ? setCourier(Score.COURIER)
-                  : null;
-                option.label === "Messagerie" && maritime === 0
-                  ? setMessaging(Score.MESSAGING)
-                  : null;
-                option.label === "Express" && maritime === 0
-                  ? setExpress(Score.EXPRESS)
-                  : null;
-                option.label === "Maritime"
-                  ? setMaritime(Score.MARITIME)
-                  : null;
-                option.label === "Affraitement" && maritime === 0
-                  ? setDelivery(Score.AFFRER)
-                  : null;
-              }}
+
+                switch (option.value) {
+                  case "coursier":
+                    setCourier(Score.COURIER)
+                    setExpedition([...expedition, "Coursier"]);
+                    break;
+                  case "express":
+                    setExpress(Score.EXPRESS)
+                    setExpedition([...expedition, "Express"]);
+                    break;
+                  case "messagerie":
+                    setMessaging(Score.MESSAGING)
+                    setExpedition([...expedition, "Messagerie"]);
+                    break;
+                  case "affraitement":
+                    setDelivery(Score.AFFRER)
+                    setExpedition([...expedition, "Affrètement"]);
+                    break;
+                  case "maritime":
+                    setMaritime(Score.MARITIME)
+                    setExpedition([...expedition, "Maritime"]);
+                    break;
+                  default:
+                    break;
+                }}
+              }
               className="hidden"
             />
             {option.logo && (

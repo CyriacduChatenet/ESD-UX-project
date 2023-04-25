@@ -3,14 +3,15 @@ import React, { FC, MouseEvent, useState } from "react";
 import facture1 from "../../assets/images/facture1.png";
 import facture2 from "../../assets/images/facture2.png";
 import facture3 from "../../assets/images/facture3.png";
-import { ResponseCard } from "../responseCard";
 import perso1 from "../../assets/images/datafret-perso-41.png";
 import { Button } from "../button";
 import { useScore } from "../../../setup/context/score.context";
 import { Score } from "../../../setup/enum/score.enum";
+import { useAnswer } from "../../../setup/context/answer.context";
 
 export const BillForm: FC = () => {
   const { setExcel, setNoControl, maritime } = useScore();
+  const { setControl } = useAnswer();
   const [credentials, setCredentials] = useState({});
 
   const [response, setResponse] = useState([
@@ -30,12 +31,6 @@ export const BillForm: FC = () => {
       value: "noControl",
     },
   ]);
-
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const { value } = e.target as HTMLButtonElement;
-    setCredentials({ [value]: value });
-  };
 
   const [selected, setSelected] = useState<any[]>([]);
 
@@ -77,12 +72,21 @@ export const BillForm: FC = () => {
               checked={selected.includes(option.value)}
               onChange={(e) => {
                 handleSelect(e, option.value);
-                option.label === "Via Excel" && maritime === 0
-                  ? setExcel(Score.EXCEL)
-                  : null;
-                option.label === "Je ne fais pas de contrôle" && maritime === 0
-                  ? setNoControl(Score.NO_CONTROL)
-                  : null;
+                switch (option.value) {
+                  case "logiciel":
+                    setControl("Via logiciel dédié");
+                    break;
+                  case "excel":
+                    setControl("Via Excel");
+                    setExcel(Score.EXCEL);
+                    break;
+                  case "noControl":
+                    setControl("Je ne fais pas de contrôle");
+                    setNoControl(Score.NO_CONTROL);
+                    break;
+                  default:
+                    break;
+                }
               }}
               className="hidden"
             />
