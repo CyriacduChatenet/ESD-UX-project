@@ -33,18 +33,18 @@ const sendEmail = async (to: string, finalScore: number, defaultScore: number, r
   return response;
 };
 
-const sendData = async (credentials: any, scores: any) => {
+const sendData = async (credentials: { email: string, carrer: string, company: string }, answers: { expedition: string[], spend: number, transporter: number, international: boolean, multiColis: boolean, control: string}) => {
   const data = {
-    email: "test11@test.com",
+    email: credentials.email,
     attributes: {
         carrer: credentials.carrer,
         company: credentials.company,
-        expedition:"maritime",
-        transport_cost:100000,
-        transport_number:5,
-        transport_international:true,
-        transport_multi_colis:true,
-        control_type:"excel"
+        expedition:`${answers.expedition}`,
+        transport_cost: answers.spend,
+        transport_number: answers.transporter,
+        transport_international: answers.international,
+        transport_multi_colis: answers.multiColis,
+        control_type:`${answers.control}`,
     }
 }
   const response = await fetch('https://api.sendinblue.com/v3/contacts', {
