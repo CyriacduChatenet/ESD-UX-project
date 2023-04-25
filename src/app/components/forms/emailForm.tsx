@@ -22,15 +22,30 @@ const EmailForm = () => {
     maritime,
   } = useScore();
 
-  const [credentials, setCredentials] = useState([]);
+  const [credentials, setCredentials] = useState({});
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setCredentials({ ...credentials, [name]: value });
   };
 
+  const handleSendData = async () => {
+    const response = await SendinBlueService.sendData(credentials, {
+      courier,
+      express,
+      messaging,
+      delivery,
+      maritime,
+      region,
+      multicolis,
+      excel,
+      noControl,
+    });
+  };
+
   const handleSubmit = async () => {
     try {
+      await handleSendData();
       const response = await SendinBlueService.sendEmail(
         to,
         finalScore,
@@ -99,7 +114,7 @@ const EmailForm = () => {
             Poste occupé
             <input
               type="text"
-              name="company"
+              name="carrer"
               className="border-2 border-solid border-[#020B28] text-[#020B28] font-normal py-2 px-4 w-full rounded"
               placeholder="Directeur Logistique"
               onChange={handleChange}
