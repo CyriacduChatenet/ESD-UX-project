@@ -137,6 +137,7 @@ const EmailForm = () => {
             Recevez notre rapport complet par mail
             <input
               type="email"
+              name="email"
               value={to}
               className="border-2 border-solid border-[#020B28] text-[#020B28] font-normal py-2 px-4 w-full rounded"
               placeholder="john.doe@gmail.com"
