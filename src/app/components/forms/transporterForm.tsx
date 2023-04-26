@@ -1,14 +1,11 @@
-import React, { FC, MouseEvent, useState } from "react";
-import { useStepHook } from "../../../setup/hooks/useStepIncrement.hook";
-import { useUser } from "../../../setup/context/user.context";
-import { ResponseCard } from "../responseCard";
+import React, { FC, useState } from "react";
+
 import { Button } from "../button";
-import perso1 from "../../assets/images/datafret-perso-21.png";
 import { useAnswer } from "../../../setup/context/answer.context";
 
+import perso1 from "../../assets/images/datafret-perso-21.png";
+
 export const TransporterForm: FC = () => {
-  const { setStep, step, progressBar, setProgressBar } = useUser();
-  const useStep = new useStepHook();
   const { setTransporter } = useAnswer();
 
   const [response, setResponse] = useState([

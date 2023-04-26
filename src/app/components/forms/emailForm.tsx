@@ -1,8 +1,9 @@
 import React, { ChangeEvent, useState } from "react";
+
 import { SendinBlueService } from "../../../setup/services/sendinblue.service";
-import { Button } from "../button";
 import { useScore } from "../../../setup/context/score.context";
 import { useAnswer } from "../../../setup/context/answer.context";
+import { Button } from "../button";
 
 import check from "../../assets/images/check.png";
 import perso1 from "../../assets/images/datafret-perso-51.png";

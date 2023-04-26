@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import { useUser } from "../../setup/context/user.context";
 
 export const ProgressBar: FC = () => {

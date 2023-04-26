@@ -1,5 +1,7 @@
 import React, { FC } from "react";
 
+import { useUser } from "../../setup/context/user.context";
+
 import logo from '../assets/images/datafret-logo-768x768.png';
 import logoLg from '../assets/images/datafret-logo-768x768-lg.png';
 import imgPerso1 from '../assets/images/datafret-perso-1.png';
@@ -8,7 +10,6 @@ import imgPerso3 from '../assets/images/datafret-perso-3.png';
 import imgPerso4 from '../assets/images/datafret-perso-4.png';
 import imgPerso5 from '../assets/images/datafret-perso-5.png';
 import imgPerso6 from '../assets/images/datafret-perso-6.png';
-import { useUser } from "../../setup/context/user.context";
 
 export const Navbar: FC = () => {
     const { step } = useUser();

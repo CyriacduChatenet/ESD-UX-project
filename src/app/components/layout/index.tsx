@@ -1,8 +1,8 @@
 import React, { FC, PropsWithChildren } from "react";
 
-import { Navbar } from "./navbar";
-import { ProgressBar } from "./progressbar";
-import { useUser } from "../../setup/context/user.context";
+import { Navbar } from "../navbar";
+import { ProgressBar } from "../progressbar";
+import { useUser } from "../../../setup/context/user.context";
 
 export const Layout: FC = ({ children }: PropsWithChildren) => {
   const { step } = useUser();

@@ -13,7 +13,7 @@ import perso1 from "../../assets/images/datafret-perso-31.png";
 
 export const MultiColisForm: FC = () => {
   const { setRegion, setMulticolis, maritime } = useScore();
-  const { international, setInternational, multiColis, setMultiColis } = useAnswer();
+  const { setInternational, setMultiColis } = useAnswer();
 
   const [firstResponse, setFirstResponse] = useState([
     {

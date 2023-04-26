@@ -1,13 +1,14 @@
 import React, { FC, MouseEvent, useState } from "react";
 
-import facture1 from "../../assets/images/facture1.png";
-import facture2 from "../../assets/images/facture2.png";
-import facture3 from "../../assets/images/facture3.png";
-import perso1 from "../../assets/images/datafret-perso-41.png";
 import { Button } from "../button";
 import { useScore } from "../../../setup/context/score.context";
 import { Score } from "../../../setup/enum/score.enum";
 import { useAnswer } from "../../../setup/context/answer.context";
+
+import facture1 from "../../assets/images/facture1.png";
+import facture2 from "../../assets/images/facture2.png";
+import facture3 from "../../assets/images/facture3.png";
+import perso1 from "../../assets/images/datafret-perso-41.png";
 
 export const BillForm: FC = () => {
   const { setExcel, setNoControl, maritime } = useScore();

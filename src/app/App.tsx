@@ -1,6 +1,6 @@
-import React, { FC, MouseEvent } from "react";
+import React, { FC } from "react";
 
-import { Layout } from "./components/Layout";
+import { Layout } from "./components/layout";
 import { useUser } from "../setup/context/user.context";
 import { ExpeditionForm } from "./components/forms/expeditionForm";
 import { SpendForm } from "./components/forms/spendForm";
