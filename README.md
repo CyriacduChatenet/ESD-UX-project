@@ -8,6 +8,8 @@
 
 ## Start project
 
+- install wordpress in local
+
 - open PHP local server with MAMP / WAMP / XAMP / Laragon or with this command line:
 ```bash
 php -S localhost:8000
