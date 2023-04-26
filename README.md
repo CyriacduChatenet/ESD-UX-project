@@ -5,3 +5,15 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/docs/)
 [![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://fr.reactjs.org/)
 [![Tailwind.CSS](https://img.shields.io/badge/TailwindCSS-16a1ba?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+
+## Start project
+
+- open PHP local server with MAMP / WAMP / XAMP / Laragon or with this command line:
+```bash
+php -S localhost:8000
+```
+
+- start react app : 
+```bash
+npm start
+```
