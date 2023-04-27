@@ -50,7 +50,7 @@ export const TransporterForm: FC = () => {
       )}
       <form
         action=""
-        className="col-span-4 lg:col-span-9 lg:grid lg:grid-cols-6 lg:gap-4 row-span-1 flex flex-wrap justify-between mt-20 lg:mt-30"
+        className="col-span-4 lg:col-span-9 lg:grid lg:grid-cols-6 lg:gap-4 row-span-1 flex flex-wrap justify-around mt-20 lg:mt-30"
       >
         {response.map((option) => (
           <label

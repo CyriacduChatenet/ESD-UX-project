@@ -61,7 +61,7 @@ export const BillForm: FC = () => {
         {response.map((option) => (
           <label
             key={option.value}
-            className={`lg:h-28 lg:justify-center items-center lg:col-span-4 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg ${
+            className={`lg:h-28 lg:justify-center items-center lg:col-span-4 py-4 px-1 my-2 flex border-2 border-solid border-[#020B28] focus:border-[#3D83F8] focus:bg-[#3D83F8] rounded-lg w-full ${
               selected.includes(option.value)
                 ? "text-[#3D83F8] bg-white border-[#3D83F8]"
                 : ""

@@ -1,15 +1,11 @@
-import React, { FC, MouseEvent, useState } from "react";
+import React, { FC, useState } from "react";
 
-import { useStepHook } from "../../../setup/hooks/useStepIncrement.hook";
-import { useUser } from "../../../setup/context/user.context";
 import { useAnswer } from "../../../setup/context/answer.context";
 import { Button } from "../button";
 
 import perso1 from "../../assets/images/datafret-perso-21.png";
 
 export const SpendForm: FC = () => {
-  const { setStep, step, progressBar, setProgressBar } = useUser();
-  const useStep = new useStepHook();
   const { setSpend } = useAnswer();
 
   const [response, setResponse] = useState([
@@ -43,7 +39,7 @@ export const SpendForm: FC = () => {
   };
 
   return (
-    <div className="lg:col-span-6 lg:grid lg:grid-cols-9 h-[60vh">
+    <div className="lg:col-span-6 lg:grid lg:grid-cols-9 h-[60vh]">
       <p className="text-[#022AB1] font-medium text-xl lg:col-span-9">
         Combien votre entreprise dépense-t-elle en prestation de transport ?
       </p>
@@ -75,7 +71,7 @@ export const SpendForm: FC = () => {
               }}
               className="hidden"
             />
-            <span className="mx-2">{option.label}</span>
+            <span className="mx-2">{option.label === 'Entre 100k et 500k' ? <span>Entre 100k et  <br/> 500k</span> : option.label}</span>
           </label>
         ))}
       </form>
