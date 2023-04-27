@@ -55,7 +55,7 @@ export const BillForm: FC = () => {
         </div>
       )}
       <form
-        className="lg:col-span-9 lg:grid lg:grid-cols-12 lg:gap-4 col-span-4 row-span-2 flex flex-col items-center justify-around mt-8"
+        className="lg:col-span-9 lg:grid lg:grid-cols-12 lg:gap-4 col-span-4 row-span-2 flex flex-col items-center justify-around lg:mt-0 mt-8"
         action=""
       >
         {response.map((option) => (
