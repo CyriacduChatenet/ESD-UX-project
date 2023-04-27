@@ -15,7 +15,7 @@ export const SpendForm: FC = () => {
   const [response, setResponse] = useState([
     {
       label: "Moins de 100k",
-      value: 1000000,
+      value: 100000,
     },
     {
       label: "Entre 100k et 500k",
