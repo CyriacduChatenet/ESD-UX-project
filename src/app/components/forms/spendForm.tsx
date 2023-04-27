@@ -40,7 +40,7 @@ export const SpendForm: FC = () => {
 
   return (
     <div className="lg:col-span-6 lg:grid lg:grid-cols-9 h-[60vh]">
-      <p className="text-[#022AB1] font-medium text-xl lg:col-span-9">
+      <p className="text-[#022AB1] font-medium text-xl lg:text-3xl lg:col-span-9">
         Combien votre entreprise dépense-t-elle en prestation de transport ?
       </p>
       <p className="text-center italic lg:col-span-9">(Annuel, en €)</p>

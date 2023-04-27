@@ -67,7 +67,7 @@ export const ExpeditionForm: FC = () => {
 
   return (
     <div className="lg:col-span-6 lg:grid lg:grid-cols-9 h-[60vh">
-      <p className="col-span-4 row-span-1 text-[#022AB1] text-xl font-medium lg:col-span-9">
+      <p className="col-span-4 row-span-1 text-[#022AB1] text-xl lg:text-3xl font-medium lg:col-span-9">
         Par quel moyen(s) expédiez-vous vos marchandises ?
       </p>
       {window.innerWidth > 1024 && (

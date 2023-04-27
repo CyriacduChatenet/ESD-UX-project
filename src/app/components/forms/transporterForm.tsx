@@ -40,7 +40,7 @@ export const TransporterForm: FC = () => {
 
   return (
     <div className="lg:col-span-6 lg:grid lg:grid-cols-9 h-[60vh">
-      <p className="col-span-4 row-span-1 text-[#022AB1] font-medium text-xl lg:col-span-9">
+      <p className="col-span-4 row-span-1 text-[#022AB1] font-medium text-xl lg:text-3xl lg:col-span-9">
         Avec combien de transporteurs travaillez vous ?
       </p>
       {window.innerWidth > 1024 && (

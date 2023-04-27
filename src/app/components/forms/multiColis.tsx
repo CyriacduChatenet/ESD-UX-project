@@ -72,7 +72,7 @@ export const MultiColisForm: FC = () => {
 
   return (
     <div className="lg:col-span-6 lg:grid lg:grid-cols-9 h-[60vh]">
-      <p className=" text-[#022AB1] font-medium text-xl lg:col-span-9">
+      <p className=" text-[#022AB1] font-medium text-xl lg:text-3xl lg:col-span-9">
         Expédiez vous vos colis à l’international ?
       </p>
       {window.innerWidth > 1024 && (
@@ -117,7 +117,7 @@ export const MultiColisForm: FC = () => {
         ))}
       </form>
       <br />
-      <p className=" text-[#022AB1] font-medium text-xl lg:col-span-9">
+      <p className=" text-[#022AB1] font-medium text-xl lg:text-4xl lg:col-span-9">
         Faites vous de l’expédition multi-colis ?
       </p>
       <p className="italic mb-2 lg:col-span-9">
