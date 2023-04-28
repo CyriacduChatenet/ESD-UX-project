@@ -498,76 +498,76 @@ export const emailTemplate  = (potentialEconomy: number, default_value: number, 
                                                           ><strong> </strong></span
                                                         >
                                                       </p>
-                                                      <p style="margin: 0">
-                                                        <span
-                                                          style="
-                                                            font-family: 'Trebuchet ms',
-                                                              helvetica, sans-serif;
-                                                          "
-                                                          >${default_value}% garantis par
-                                                          l’utilisation de DataFret
-                                                           </span
-                                                        >
-                                                      </p>
-                                                      <p style="margin: 0">
-                                                        <span
-                                                          style="
-                                                            font-family: 'Trebuchet ms',
-                                                              helvetica, sans-serif;
-                                                          "
-                                                          >${international_value}% relatif à l’expédition
-                                                          de colis à l’international
-                                                           </span
-                                                        >
-                                                      </p>
-                                                      <p style="margin: 0">
-                                                        <span
-                                                          style="
-                                                            font-family: 'Trebuchet ms',
-                                                              helvetica, sans-serif;
-                                                          "
-                                                          >${multi_colis}% d’économies sur le
-                                                          multi-colis</span
-                                                        >
-                                                      </p>
-                                                      <p style="margin: 0">
-                                                        <span
-                                                          style="
-                                                            font-family: 'Trebuchet ms',
-                                                              helvetica, sans-serif;
-                                                          "
-                                                          >${transport_value}% via le transport en
-                                                          Fret</span
-                                                        >
-                                                      </p>
-                                                      <p style="margin: 0">
+                                                     ${default_value > 0 && maritime === 0 ? ` <p style="margin: 0">
+                                                     <span
+                                                       style="
+                                                         font-family: 'Trebuchet ms',
+                                                           helvetica, sans-serif;
+                                                       "
+                                                       >${default_value}% garantis par
+                                                       l’utilisation de DataFret
+                                                        </span
+                                                     >
+                                                   </p>` : ''}
+                                                      ${international_value > 0 && maritime === 0 ? `<p style="margin: 0">
                                                       <span
                                                         style="
                                                           font-family: 'Trebuchet ms',
                                                             helvetica, sans-serif;
                                                         "
-                                                        >${courier}% via le cheminement par coursier</span
+                                                        >${international_value}% relatif à l’expédition
+                                                        de colis à l’international
+                                                         </span
                                                       >
-                                                    </p>
-                                                    <p style="margin: 0">
-                                                    <span
-                                                      style="
-                                                        font-family: 'Trebuchet ms',
-                                                          helvetica, sans-serif;
-                                                      "
-                                                      >${express}% via la livraison express</span
-                                                    >
-                                                  </p>
-                                                  <p style="margin: 0">
-                                                  <span
-                                                    style="
-                                                      font-family: 'Trebuchet ms',
-                                                        helvetica, sans-serif;
-                                                    "
-                                                    >${messaging}% via le système de messagerie</span
-                                                  >
-                                                </p>
-                                                <p style="margin: 0">
+                                                    </p>`: ''}
+                                                      ${multi_colis > 0 && maritime === 0 ? `<p style="margin: 0">
+                                                      <span
+                                                        style="
+                                                          font-family: 'Trebuchet ms',
+                                                            helvetica, sans-serif;
+                                                        "
+                                                        >${multi_colis}% d’économies sur le
+                                                        multi-colis</span
+                                                      >
+                                                    </p>`: ''}
+                                                      ${transport_value > 0 && maritime === 0 ? `<p style="margin: 0">
+                                                      <span
+                                                        style="
+                                                          font-family: 'Trebuchet ms',
+                                                            helvetica, sans-serif;
+                                                        "
+                                                        >${transport_value}% via le transport en
+                                                        Fret</span
+                                                      >
+                                                    </p>`: ''}
+                                                     ${courier > 0 && maritime === 0 ? ` <p style="margin: 0">
+                                                     <span
+                                                       style="
+                                                         font-family: 'Trebuchet ms',
+                                                           helvetica, sans-serif;
+                                                       "
+                                                       >${courier}% via le cheminement par coursier</span
+                                                     >
+                                                   </p>` : ''}
+                                                   ${express > 0 && maritime === 0 ? `<p style="margin: 0">
+                                                   <span
+                                                     style="
+                                                       font-family: 'Trebuchet ms',
+                                                         helvetica, sans-serif;
+                                                     "
+                                                     >${express}% via la livraison express</span
+                                                   >
+                                                 </p>`: ''}
+                                                 ${messaging > 0 && maritime === 0 ? ` <p style="margin: 0">
+                                                 <span
+                                                   style="
+                                                     font-family: 'Trebuchet ms',
+                                                       helvetica, sans-serif;
+                                                   "
+                                                   >${messaging}% via le système de messagerie</span
+                                                 >
+                                               </p>` : ''}
+                                                ${maritime > 0 ? `<p style="margin: 0">
                                                 <span
                                                   style="
                                                     font-family: 'Trebuchet ms',
@@ -575,8 +575,8 @@ export const emailTemplate  = (potentialEconomy: number, default_value: number, 
                                                   "
                                                   >${maritime}% via le transport maritime</span
                                                 >
-                                              </p>
-                                              <p style="margin: 0">
+                                              </p>`: ''}
+                                              ${(excel || noControl) > 0 && maritime === 0 ? `<p style="margin: 0">
                                               <span
                                                 style="
                                                   font-family: 'Trebuchet ms',
@@ -584,7 +584,7 @@ export const emailTemplate  = (potentialEconomy: number, default_value: number, 
                                                 "
                                                 >${excel ? excel : noControl}% via votre système de contrôle</span
                                               >
-                                            </p>
+                                            </p>` : ''}
                                                     </div>
                                                   </td>
                                                 </tr>
