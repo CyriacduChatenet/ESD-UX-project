@@ -19,3 +19,5 @@ php -S localhost:8000
 ```bash
 npm start
 ```
+
+- [Figma](https://www.figma.com/file/jLgIFL1NKFQthqkpfEBu0g/DATA-FRET---PROJET-UX?type=design&node-id=8%3A14&t=bVMbYGUu0K56yVi0-1)
