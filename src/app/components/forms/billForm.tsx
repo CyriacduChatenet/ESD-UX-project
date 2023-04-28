@@ -8,6 +8,9 @@ import { useAnswer } from "../../../setup/context/answer.context";
 import facture1 from "../../assets/images/facture1.png";
 import facture2 from "../../assets/images/facture2.png";
 import facture3 from "../../assets/images/facture3.png";
+import facture1Select from "../../assets/images/facture1Select.png";
+import facture2Select from "../../assets/images/facture2Select.png";
+import facture3Select from "../../assets/images/facture3Select.png";
 import perso1 from "../../assets/images/datafret-perso-41.png";
 
 export const BillForm: FC = () => {
@@ -19,16 +22,19 @@ export const BillForm: FC = () => {
     {
       label: "Via logiciel dédié",
       logo: facture1,
+      logoSelect: facture1Select,
       value: "logiciel",
     },
     {
       label: "Via Excel",
       logo: facture2,
+      logoSelect: facture2Select,
       value: "excel",
     },
     {
       label: "Je ne fais pas de contrôle",
       logo: facture3,
+      logoSelect: facture3Select,
       value: "noControl",
     },
   ]);
@@ -91,13 +97,20 @@ export const BillForm: FC = () => {
               }}
               className="hidden"
             />
-            {option.logo && (
-              <img
-                src={option.logo}
-                alt={option.label}
-                className="w-8 h-8 mx-2"
-              />
-            )}
+            {option.logo &&
+              (selected.includes(option.value) ? (
+                <img
+                  src={option.logoSelect}
+                  alt={option.label}
+                  className="w-12 h-12 mx-2"
+                />
+              ) : (
+                <img
+                  src={option.logo}
+                  alt={option.label}
+                  className="w-12 h-12 mx-2"
+                />
+              ))}
             <span className="mx-2">{option.label}</span>
           </label>
         ))}

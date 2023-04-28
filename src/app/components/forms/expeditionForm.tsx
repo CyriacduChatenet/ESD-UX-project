@@ -11,6 +11,11 @@ import expe2 from "../../assets/images/expe2.png";
 import expe3 from "../../assets/images/expe3.png";
 import expe4 from "../../assets/images/expe4.png";
 import expe5 from "../../assets/images/expe5.png";
+import expe1Select from "../../assets/images/expe1Select.png";
+import expe2Select from "../../assets/images/expe2Select.png";
+import expe3Select from "../../assets/images/expe3Select.png";
+import expe4Select from "../../assets/images/expe4Select.png";
+import expe5Select from "../../assets/images/expe5Select.png";
 import perso1 from "../../assets/images/datafret-perso-11.png";
 
 export const ExpeditionForm: FC = () => {
@@ -30,26 +35,31 @@ export const ExpeditionForm: FC = () => {
       label: "Coursier",
       value: "coursier",
       logo: expe1,
+      logoSelect: expe1Select,
     },
     {
       label: "Express",
       value: "express",
       logo: expe3,
+      logoSelect: expe3Select,
     },
     {
       label: "Messagerie",
       value: "messagerie",
       logo: expe2,
+      logoSelect: expe2Select,
     },
     {
       label: "Affraitement",
       value: "affraitement",
       logo: expe5,
+      logoSelect: expe5Select,
     },
     {
       label: "Maritime",
       value: "maritime",
       logo: expe4,
+      logoSelect: expe4Select,
     },
   ]);
 
@@ -120,14 +130,19 @@ export const ExpeditionForm: FC = () => {
                     break;
                 }}
               }
-              className="hidden"
+              className="hidden text-md"
             />
             {option.logo && (
+              selected.includes(option.value) ?
               <img
-                src={option.logo}
+                src={option.logoSelect}
                 alt={option.label}
-                className="w-8 h-8 mx-2"
-              />
+                className="w-12 h-12 mx-2"
+              /> : <img
+              src={option.logo}
+              alt={option.label}
+              className="w-12 h-12 mx-2"
+            />
             )}
             <span className="mx-2">{option.label}</span>
           </label>

@@ -40,6 +40,7 @@ const EmailForm = () => {
   } = useAnswer();
 
   const [credentials, setCredentials] = useState({});
+  const [displayPopup, setDisplayPopup] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -75,7 +76,7 @@ const EmailForm = () => {
         maritime
       );
       console.log("Email sent:", response);
-      // Display a success message to the user
+      setDisplayPopup(true);
     } catch (error) {
       console.error("Error sending email:", error);
       // Display an error message to the user
@@ -149,6 +150,7 @@ const EmailForm = () => {
             />
           </label>
         </div>
+       {displayPopup ? <p className="text-[#61CE70] bg-[#e7f9ea] rounded-lg w-full h-12 flex pl-8 items-center"> ✔ Mail envoyé avec succès</p> : null}
       </form>
       <br />
       <div className="fixed left-0 right-0 bottom-20 flex justify-around items-center">

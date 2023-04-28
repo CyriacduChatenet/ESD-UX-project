@@ -68,7 +68,7 @@ export const SideBar: FC = () => {
           </div>
         ))}
       </div>
-      <div className="w-[2px] h-[50vh] bg-[#E2ECFE] bg-opacity-50 relative z-0 left-28"></div>
+      <div className="w-[2px] h-[50vh] bg-[#E2ECFE] bg-opacity-50 relative z-0 left-[9.75rem]"></div>
     </div>
   );
 };

@@ -9,6 +9,10 @@ import colis1 from "../../assets/images/colis1.png";
 import colis2 from "../../assets/images/colis2.png";
 import colis3 from "../../assets/images/colis3.png";
 import colis4 from "../../assets/images/colis4.png";
+import colis1Select from "../../assets/images/colis1Select.png";
+import colis2Select from "../../assets/images/colis2Select.png";
+import colis3Select from "../../assets/images/colis3Select.png";
+import colis4Select from "../../assets/images/colis4Select.png";
 import perso1 from "../../assets/images/datafret-perso-31.png";
 
 export const MultiColisForm: FC = () => {
@@ -20,11 +24,13 @@ export const MultiColisForm: FC = () => {
       label: "oui",
       value: "oui",
       logo: colis1,
+      logoSelect: colis1Select,
     },
     {
       label: "non",
       value: "non",
       logo: colis2,
+      logoSelect: colis2Select,
     },
   ]);
 
@@ -33,11 +39,13 @@ export const MultiColisForm: FC = () => {
       label: "oui",
       value: "oui",
       logo: colis3,
+      logoSelect: colis3Select,
     },
     {
       label: "non",
       value: "non",
       logo: colis4,
+      logoSelect: colis4Select,
     },
   ]);
 
@@ -106,10 +114,16 @@ export const MultiColisForm: FC = () => {
               className="hidden"
             />
             {option.logo && (
+              selected.includes(option.value) ?
+              <img
+                src={option.logoSelect}
+                alt={option.label}
+                className="w-12 h-12 mx-2"
+              /> :
               <img
                 src={option.logo}
                 alt={option.label}
-                className="w-8 h-8 mx-2"
+                className="w-12 h-12 mx-2"
               />
             )}
             <span className="mx-2">{option.label}</span>
@@ -152,10 +166,16 @@ export const MultiColisForm: FC = () => {
               className="hidden"
             />
             {option.logo && (
+              selected.includes(option.value) ?
+              <img
+                src={option.logoSelect}
+                alt={option.label}
+                className="w-12 h-12 mx-2"
+              /> :
               <img
                 src={option.logo}
                 alt={option.label}
-                className="w-8 h-8 mx-2"
+                className="w-12 h-12 mx-2"
               />
             )}
             <span className="mx-2">{option.label}</span>
