@@ -59,7 +59,7 @@ export const SideBar: FC = () => {
               <p className="font-light text-start">Etape {stepState.step}</p>
             </div>
             <div
-              className={`w-4 h-4 rounded-full ml-8 ${
+              className={`w-4 h-4 rounded-full ml-12 ${
                 activeIndex === index - 1
                   ? "bg-[#030472] font-medium"
                   : "bg-[#E2ECFE]"
@@ -68,7 +68,7 @@ export const SideBar: FC = () => {
           </div>
         ))}
       </div>
-      <div className="w-[2px] h-[50vh] bg-[#E2ECFE] bg-opacity-50 relative z-0 left-36"></div>
+      <div className="w-[2px] h-[50vh] bg-[#E2ECFE] bg-opacity-50 relative z-0 left-28"></div>
     </div>
   );
 };

@@ -2,8 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   '@tailwindcss/typography': ^0.5.2
-  '@types/airtable': ^0.10.1
-  '@types/dotenv': ^8.2.0
   '@types/node': ^18.15.11
   '@types/react': ^18.0.24
   '@types/react-dom': ^18.0.8
@@ -17,8 +15,6 @@ specifiers:
   tailwindcss: ^3.1.4
 
 dependencies:
-  '@types/airtable': 0.10.1
-  '@types/dotenv': 8.2.0
   '@types/node': 18.15.11
   airtable: 0.11.6
   dotenv: 16.0.3
@@ -1982,15 +1978,6 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  /@types/airtable/0.10.1:
-    resolution: {integrity: sha512-ZwMU+ZztgmN1k12ist39+lDQAkeeaPLO5pgXdRodJecVTMo+zKHNn83dQcLY3eaD3BbUfEZ/6uJsqBTcM+UKuQ==}
-    deprecated: This is a stub types definition. airtable provides its own type definitions, so you do not need this installed.
-    dependencies:
-      airtable: 0.11.6
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
   /@types/babel__core/7.20.0:
     resolution: {integrity: sha512-+n8dL/9GWblDO0iU6eZAwEIJVr5DWigtle+Q6HLOrh/pdbXOhOtqzq8VPPE2zvNJzSKY4vH/z3iT3tn0A3ypiQ==}
     dependencies:
@@ -2061,13 +2048,6 @@ packages:
     dependencies:
       '@types/node': 18.15.11
     dev: true
-
-  /@types/dotenv/8.2.0:
-    resolution: {integrity: sha512-ylSC9GhfRH7m1EUXBXofhgx4lUWmFeQDINW5oLuS+gxWdfUeW4zJdeVTYVkexEW+e2VUvlZR2kGnGGipAWR7kw==}
-    deprecated: This is a stub types definition. dotenv provides its own type definitions, so you do not need this installed.
-    dependencies:
-      dotenv: 16.0.3
-    dev: false
 
   /@types/eslint-scope/3.7.4:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}

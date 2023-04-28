@@ -33,7 +33,7 @@ const sendEmail = async (to: string, finalScore: number, defaultScore: number, r
   return response;
 };
 
-const sendData = async (credentials: { email: string, carrer: string, company: string }, answers: { expedition: string[], spend: number, transporter: number, international: boolean, multiColis: boolean, control: string}) => {
+const sendData = async (credentials, answers) => {
   const data = {
     email: credentials.email,
     attributes: {
