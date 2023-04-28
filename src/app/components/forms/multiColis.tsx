@@ -113,18 +113,17 @@ export const MultiColisForm: FC = () => {
               }}
               className="hidden"
             />
-            {option.logo && (
+                    {option.logo && (
               selected.includes(option.value) ?
               <img
                 src={option.logoSelect}
                 alt={option.label}
                 className="w-12 h-12 mx-2"
-              /> :
-              <img
-                src={option.logo}
-                alt={option.label}
-                className="w-12 h-12 mx-2"
-              />
+              /> : <img
+              src={option.logo}
+              alt={option.label}
+              className="w-12 h-12 mx-2"
+            />
             )}
             <span className="mx-2">{option.label}</span>
           </label>
@@ -165,18 +164,17 @@ export const MultiColisForm: FC = () => {
               }}
               className="hidden"
             />
-            {option.logo && (
+                    {option.logo && (
               selected.includes(option.value) ?
               <img
                 src={option.logoSelect}
                 alt={option.label}
                 className="w-12 h-12 mx-2"
-              /> :
-              <img
-                src={option.logo}
-                alt={option.label}
-                className="w-12 h-12 mx-2"
-              />
+              /> : <img
+              src={option.logo}
+              alt={option.label}
+              className="w-12 h-12 mx-2"
+            />
             )}
             <span className="mx-2">{option.label}</span>
           </label>
